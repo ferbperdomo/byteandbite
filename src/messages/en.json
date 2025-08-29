@@ -1,0 +1,40 @@
+{
+  "navigation": {
+    "services": "Services",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "title": "Start building websites people remember.",
+    "subtitle": "Creative marketing agency specializing in visual storytelling and digital experiences that connect with your audience.",
+    "cta": "Get Started",
+    "secondary": "View Portfolio"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "We are a creative marketing agency passionate about visual storytelling. Our team of experts transforms ideas into compelling visual narratives that connect with your audience.",
+    "team": "Our Team"
+  },
+  "gallery": {
+    "photos": "Photos",
+    "videos": "Videos",
+    "web": "Web Projects"
+  },
+  "services": {
+    "title": "Our Services",
+    "photography": "Photography",
+    "videography": "Videography",
+    "marketing": "Marketing Strategy",
+    "branding": "Brand Identity"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questions": {
+      "q1": "What services do you offer?",
+      "a1": "We offer photography, videography, marketing strategy, and brand identity services.",
+      "q2": "How long does a project take?",
+      "a2": "Project timelines vary depending on scope and complexity. We'll provide a detailed timeline during our initial consultation.",
+      "q3": "Do you work with small businesses?",
+      "a3": "Yes! We work with businesses of all sizes, from startups to established corporations."
+    }
+  }
+}

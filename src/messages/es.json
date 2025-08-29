@@ -1,0 +1,40 @@
+{
+  "navigation": {
+    "services": "Servicios",
+    "faq": "Preguntas Frecuentes"
+  },
+  "hero": {
+    "title": "Empieza a construir sitios web que la gente recuerde.",
+    "subtitle": "Agencia de marketing creativo especializada en narrativa visual y experiencias digitales que conectan con tu audiencia.",
+    "cta": "Comenzar",
+    "secondary": "Ver Portafolio"
+  },
+  "about": {
+    "title": "Sobre Nosotros",
+    "description": "Somos una agencia de marketing creativo apasionada por la narrativa visual. Nuestro equipo de expertos transforma ideas en narrativas visuales convincentes que conectan con tu audiencia.",
+    "team": "Nuestro Equipo"
+  },
+  "gallery": {
+    "photos": "Fotos",
+    "videos": "Videos",
+    "web": "Proyectos Web"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "photography": "Fotografía",
+    "videography": "Videografía",
+    "marketing": "Estrategia de Marketing",
+    "branding": "Identidad de Marca"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "questions": {
+      "q1": "¿Qué servicios ofrecen?",
+      "a1": "Ofrecemos servicios de fotografía, videografía, estrategia de marketing e identidad de marca.",
+      "q2": "¿Cuánto tiempo toma un proyecto?",
+      "a2": "Los tiempos de proyecto varían según el alcance y la complejidad. Proporcionaremos una línea de tiempo detallada durante nuestra consulta inicial.",
+      "q3": "¿Trabajan con pequeñas empresas?",
+      "a3": "¡Sí! Trabajamos con empresas de todos los tamaños, desde startups hasta corporaciones establecidas."
+    }
+  }
+}
