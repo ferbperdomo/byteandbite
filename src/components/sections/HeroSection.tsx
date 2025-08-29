@@ -7,32 +7,10 @@ export default function HeroSection() {
   const t = useTranslations("hero");
 
   return (
-    <section
-      style={{
-        width: "100vw",
-        height: "100vh",
-        backgroundColor: "#000000",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-        color: "#ffffff",
-      }}
-    >
-      <div
-        style={{
-          textAlign: "center",
-          maxWidth: "800px",
-          padding: "0 20px",
-        }}
-      >
+    <section className="w-full h-screen bg-black flex items-center justify-center relative text-white overflow-hidden overflow-x-hidden">
+      <div className="text-center max-w-4xl px-5 mx-auto max-w-full">
         <motion.h1
-          style={{
-            fontSize: "clamp(3rem, 8vw, 6rem)",
-            fontWeight: "700",
-            lineHeight: "1.1",
-            marginBottom: "2rem",
-          }}
+          className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -41,12 +19,7 @@ export default function HeroSection() {
         </motion.h1>
 
         <motion.p
-          style={{
-            fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
-            lineHeight: "1.6",
-            marginBottom: "3rem",
-            opacity: 0.8,
-          }}
+          className="text-lg md:text-xl lg:text-2xl leading-relaxed mb-12 opacity-80"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -55,45 +28,16 @@ export default function HeroSection() {
         </motion.p>
 
         <motion.div
-          style={{
-            display: "flex",
-            gap: "1rem",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
+          className="flex gap-4 justify-center flex-wrap"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
         >
-          <button
-            style={{
-              backgroundColor: "#ffffff",
-              color: "#000000",
-              padding: "1rem 2rem",
-              borderRadius: "8px",
-              fontSize: "1.1rem",
-              fontWeight: "600",
-              border: "none",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-            }}
-          >
+          <button className="bg-white text-black px-8 py-4 rounded-lg text-lg font-semibold border-none cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg">
             {t("cta")}
           </button>
 
-          <button
-            style={{
-              backgroundColor: "transparent",
-              color: "#ffffff",
-              padding: "1rem 2rem",
-              borderRadius: "8px",
-              fontSize: "1.1rem",
-              fontWeight: "600",
-              border: "2px solid #ffffff",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-            }}
-          >
+          <button className="bg-transparent text-white px-8 py-4 rounded-lg text-lg font-semibold border-2 border-white cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black">
             {t("secondary")}
           </button>
         </motion.div>

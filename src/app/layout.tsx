@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -23,7 +23,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://res.cloudinary.com" />
       </head>
-      <body>{children}</body>
+      <body className="overflow-x-hidden bg-black">{children}</body>
     </html>
   );
 }
