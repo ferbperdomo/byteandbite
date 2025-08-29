@@ -9,9 +9,11 @@ export default async function HomePage({
   await params;
 
   return (
-    <main style={{ backgroundColor: "#000000", color: "#ffffff" }}>
+    <>
       <Navbar />
-      <HeroSection />
-    </main>
+      <main className="bg-black text-white">
+        <HeroSection />
+      </main>
+    </>
   );
 }

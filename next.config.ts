@@ -3,7 +3,6 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: import("next").NextConfig = {
-  /* config options here */
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -16,11 +15,9 @@ const nextConfig: import("next").NextConfig = {
     domains: ["res.cloudinary.com"],
     formats: ["image/webp", "image/avif"],
   },
-  // Optimizaciones SEO
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
-  // Headers para seguridad y SEO
   async headers() {
     return [
       {
@@ -55,7 +52,6 @@ const nextConfig: import("next").NextConfig = {
       },
     ];
   },
-  // Redirecciones para SEO
   async redirects() {
     return [
       {
