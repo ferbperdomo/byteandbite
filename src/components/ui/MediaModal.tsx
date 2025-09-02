@@ -37,7 +37,7 @@ export default function MediaModal({ media, onClose }: MediaModalProps) {
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-6">
       <div
         ref={modalRef}
         className="relative max-w-7xl max-h-full w-full h-full flex items-center justify-center"
@@ -45,6 +45,7 @@ export default function MediaModal({ media, onClose }: MediaModalProps) {
         {/* Close Button */}
         <button
           onClick={onClose}
+          title="Close modal"
           className="absolute top-4 right-4 z-10 w-12 h-12 bg-black bg-opacity-50 text-white rounded-full flex items-center justify-center hover:bg-opacity-70 transition-colors"
         >
           <svg
@@ -70,7 +71,7 @@ export default function MediaModal({ media, onClose }: MediaModalProps) {
               controls
               autoPlay
               className="max-w-full max-h-full object-contain"
-              style={{ maxHeight: "90vh", maxWidth: "90vw" }}
+              style={{ maxHeight: "85vh", maxWidth: "85vw" }}
             >
               Your browser does not support the video tag.
             </video>
@@ -86,35 +87,6 @@ export default function MediaModal({ media, onClose }: MediaModalProps) {
               />
             </div>
           )}
-        </div>
-
-        {/* Media Info */}
-        <div className="absolute bottom-4 left-4 right-4 bg-black bg-opacity-70 text-white p-4 rounded-lg">
-          <div className="flex justify-between items-start">
-            <div>
-              <h3 className="font-semibold text-lg mb-1">
-                {media.public_id.split("/").pop()}
-              </h3>
-              <div className="flex space-x-4 text-sm text-gray-300">
-                <span>{media.format?.toUpperCase()}</span>
-                <span>
-                  {media.width} × {media.height}
-                </span>
-                <span>{media.resource_type}</span>
-              </div>
-            </div>
-
-            {/* Download Button */}
-            <a
-              href={media.secure_url}
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium"
-            >
-              Download
-            </a>
-          </div>
         </div>
       </div>
     </div>
