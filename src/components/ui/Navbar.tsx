@@ -56,7 +56,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center space-x-8">
             <Link
-              href="#services"
+              href="#gallery"
               className={`text-white hover:text-gray-300 px-3 py-2 text-sm font-medium transition-all duration-500 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] ${
                 isLoaded
                   ? "opacity-100 translate-y-0"
@@ -67,7 +67,11 @@ export default function Navbar() {
               {t("services")}
             </Link>
             <Link
-              href="#faq"
+              href={
+                currentLocale === "es"
+                  ? `/${currentLocale}/preguntas-frecuentes`
+                  : `/${currentLocale}/faq`
+              }
               className={`text-white hover:text-gray-300 px-3 py-2 text-sm font-medium transition-all duration-500 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] ${
                 isLoaded
                   ? "opacity-100 translate-y-0"
@@ -150,18 +154,22 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm px-8 py-4 md:hidden">
-          <div className="flex flex-col gap-4">
+        <div className="absolute top-full left-0 right-0 bg-black/20 backdrop-blur-xl px-8 py-8 md:hidden">
+          <div className="flex flex-col items-center gap-6 text-center">
             <Link
-              href="#services"
-              className="text-white no-underline text-base font-medium hover:opacity-70 transition-opacity"
+              href="#gallery"
+              className="text-white no-underline text-lg font-medium hover:opacity-70 transition-all duration-300 hover:scale-105"
               onClick={() => setIsMenuOpen(false)}
             >
               {t("services")}
             </Link>
             <Link
-              href="#faq"
-              className="text-white no-underline text-base font-medium hover:opacity-70 transition-opacity"
+              href={
+                currentLocale === "es"
+                  ? `/${currentLocale}/preguntas-frecuentes`
+                  : `/${currentLocale}/faq`
+              }
+              className="text-white no-underline text-lg font-medium hover:opacity-70 transition-all duration-300 hover:scale-105"
               onClick={() => setIsMenuOpen(false)}
             >
               {t("faq")}
@@ -171,7 +179,7 @@ export default function Navbar() {
                 toggleLanguage();
                 setIsMenuOpen(false);
               }}
-              className="bg-transparent text-white border border-white px-4 py-2 rounded-md text-sm font-medium cursor-pointer self-start hover:bg-white hover:text-black transition-all duration-300 flex items-center"
+              className="bg-white/10 backdrop-blur-sm text-white border border-white/30 px-6 py-3 rounded-lg text-sm font-medium cursor-pointer hover:bg-white/20 hover:border-white/50 transition-all duration-300 flex items-center justify-center"
             >
               <svg
                 className="w-4 h-4 mr-2"

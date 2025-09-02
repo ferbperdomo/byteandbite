@@ -28,6 +28,7 @@
   },
   "faq": {
     "title": "Preguntas Frecuentes",
+    "subtitle": "Encuentra respuestas a las preguntas más comunes sobre nuestros servicios",
     "questions": {
       "q1": "¿Qué servicios ofrecen?",
       "a1": "Ofrecemos servicios de fotografía, videografía, estrategia de marketing e identidad de marca.",
@@ -35,6 +36,27 @@
       "a2": "Los tiempos de proyecto varían según el alcance y la complejidad. Proporcionaremos una línea de tiempo detallada durante nuestra consulta inicial.",
       "q3": "¿Trabajan con pequeñas empresas?",
       "a3": "¡Sí! Trabajamos con empresas de todos los tamaños, desde startups hasta corporaciones establecidas."
-    }
+    },
+    "backToHome": "Volver al inicio"
+  },
+  "footer": {
+    "description": "Agencia creativa especializada en fotografía y video gastronómico, diseñados para que tu restaurante conquiste tanto en la mesa como en las redes sociales.",
+    "services": {
+      "title": "Servicios",
+      "photography": "Fotografía Profesional",
+      "videography": "Videografía y Edición",
+      "webDevelopment": "Desarrollo Web",
+      "branding": "Branding y Diseño"
+    },
+    "contact": {
+      "title": "Contacto",
+      "email": "admin@byteandbitemedia.com",
+      "phone": "+1 (555) 123-4567",
+      "location": "Ciudad, País",
+      "hours": "Horario: Lun-Vie 9AM-6PM"
+    },
+    "copyright": "Todos los derechos reservados.",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio"
   }
 }

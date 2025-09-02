@@ -11,7 +11,7 @@
   },
   "about": {
     "title": "About Us",
-   "description": "We are a creative agency specialized in food and beverage photography and videography. We help restaurants and cocktail bars showcase their essence through visual content that sparks emotions and builds real connections with their customers.",
+    "description": "We are a creative agency specialized in food and beverage photography and videography. We help restaurants and cocktail bars showcase their essence through visual content that sparks emotions and builds real connections with their customers.",
     "team": "Our Team"
   },
   "gallery": {
@@ -28,6 +28,7 @@
   },
   "faq": {
     "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to the most common questions about our services",
     "questions": {
       "q1": "What services do you offer?",
       "a1": "We offer photography, videography, marketing strategy, and brand identity services.",
@@ -35,6 +36,27 @@
       "a2": "Project timelines vary depending on scope and complexity. We'll provide a detailed timeline during our initial consultation.",
       "q3": "Do you work with small businesses?",
       "a3": "Yes! We work with businesses of all sizes, from startups to established corporations."
-    }
+    },
+    "backToHome": "Back to home"
+  },
+  "footer": {
+    "description": "Creative agency specialized in food & beverage photography and videography, helping your restaurant shine both at the table and on social media.",
+    "services": {
+      "title": "Services",
+      "photography": "Professional Photography",
+      "videography": "Videography & Editing",
+      "webDevelopment": "Web Development",
+      "branding": "Branding & Design"
+    },
+    "contact": {
+      "title": "Contact",
+      "email": "admin@byteandbitemedia.com",
+      "phone": "+1 (555) 123-4567",
+      "location": "City, Country",
+      "hours": "Business Hours: Mon-Fri 9AM-6PM"
+    },
+    "copyright": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
   }
 }

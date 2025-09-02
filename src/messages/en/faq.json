@@ -1,0 +1,13 @@
+{
+  "title": "Frequently Asked Questions",
+  "subtitle": "Find answers to the most common questions about our services",
+  "questions": {
+    "q1": "What services do you offer?",
+    "a1": "We offer photography, videography, marketing strategy, and brand identity services.",
+    "q2": "How long does a project take?",
+    "a2": "Project timelines vary depending on scope and complexity. We'll provide a detailed timeline during our initial consultation.",
+    "q3": "Do you work with small businesses?",
+    "a3": "Yes! We work with businesses of all sizes, from startups to established corporations."
+  },
+  "backToHome": "Back to home"
+}

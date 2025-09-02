@@ -1,0 +1,13 @@
+{
+  "title": "Preguntas Frecuentes",
+  "subtitle": "Encuentra respuestas a las preguntas más comunes sobre nuestros servicios",
+  "questions": {
+    "q1": "¿Qué servicios ofrecen?",
+    "a1": "Ofrecemos servicios de fotografía, videografía, estrategia de marketing e identidad de marca.",
+    "q2": "¿Cuánto tiempo toma un proyecto?",
+    "a2": "Los tiempos de proyecto varían según el alcance y la complejidad. Proporcionaremos una línea de tiempo detallada durante nuestra consulta inicial.",
+    "q3": "¿Trabajan con pequeñas empresas?",
+    "a3": "¡Sí! Trabajamos con empresas de todos los tamaños, desde startups hasta corporaciones establecidas."
+  },
+  "backToHome": "Volver al inicio"
+}
