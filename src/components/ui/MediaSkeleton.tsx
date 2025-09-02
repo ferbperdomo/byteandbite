@@ -8,7 +8,7 @@ export default function MediaSkeleton({ count }: MediaSkeletonProps) {
       {Array.from({ length: count }).map((_, index) => (
         <div
           key={index}
-          className="group relative aspect-[4/3] md:aspect-[3/2] bg-gray-800 rounded-lg overflow-hidden animate-pulse"
+          className="group relative aspect-[4/3] md:aspect-[3/2] bg-gray-800 rounded-lg overflow-hidden animate-pulse max-h-[25vh]"
         >
           {/* Base gradient background */}
           <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800" />

@@ -7,7 +7,7 @@ export default function HeroSection() {
   const t = useTranslations("hero");
 
   return (
-    <section className="w-full h-screen bg-black flex items-center justify-center relative text-white overflow-hidden overflow-x-hidden">
+    <section className="w-full h-[80vh] bg-black flex items-center justify-center relative text-white mb-24">
       <div className="text-center max-w-4xl px-5 mx-auto max-w-full">
         <motion.h1
           className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8"

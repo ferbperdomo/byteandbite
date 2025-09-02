@@ -44,19 +44,12 @@ export default function Navbar() {
                 : "opacity-0 translate-y-4 scale-95"
             }`}
           >
-            {/* Nube de fondo - múltiples capas para efecto suave */}
-            <div className="absolute inset-0 -inset-x-4 -inset-y-2 animate-floating-cloud">
-              <div className="absolute inset-0 bg-white/15 blur-2xl rounded-full transform scale-150"></div>
-              <div className="absolute inset-0 bg-white/10 blur-xl rounded-full transform scale-125 translate-x-2"></div>
-              <div className="absolute inset-0 bg-white/8 blur-lg rounded-full transform scale-110 -translate-x-1"></div>
-              <div className="absolute inset-0 bg-gradient-radial from-white/12 via-white/6 to-transparent blur-md rounded-full"></div>
-            </div>
             <Image
-              src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1756473899/output-onlinepngtools_1_zzpf27.png"
+              src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1756726417/byteandbitemedianobg_f47g5u.png"
               alt="Byte & Bite"
               width={120}
               height={60}
-              className="h-36 w-auto relative z-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]"
+              className="h-36 w-auto relative invert brightness-100 z-10"
               priority
             />
           </div>

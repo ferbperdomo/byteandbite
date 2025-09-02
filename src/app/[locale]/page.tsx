@@ -12,9 +12,8 @@ export default async function HomePage({
   return (
     <>
       <Navbar />
-      <main className="bg-black text-white overflow-x-hidden max-w-full">
+      <main className="bg-black text-white">
         <HeroSection />
-        <div className="h-24 bg-gradient-to-b from-black via-gray-900/20 to-black"></div>
         <Gallery />
       </main>
     </>

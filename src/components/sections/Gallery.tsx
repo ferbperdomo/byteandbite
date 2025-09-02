@@ -122,7 +122,7 @@ export default function Gallery() {
   return (
     <section
       ref={ref}
-      className={`h-screen bg-black text-white overflow-hidden ${
+      className={`h-screen bg-black text-white overflow-hidden mb-24 h-[80vh] ${
         hasIntersected
           ? "animate-gallery-slide-in"
           : "opacity-0 translate-y-10 scale-98"
