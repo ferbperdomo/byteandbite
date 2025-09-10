@@ -1,0 +1,89 @@
+{
+  "navigation": {
+    "services": "Servicios",
+    "faq": "Preguntas Frecuentes"
+  },
+  "hero": {
+    "title": "Tu visión, nuestra creación.",
+    "subtitle": "Dale vida a tu marca. Desde contenido atractivo hasta sitios web impresionantes, construimos tu presencia digital.",
+    "description": "En BYTE STUDIO, creamos contenido visual poderoso que ayuda a las marcas a conectar, involucrar y crecer. Desde fotografía impresionante hasta producción de video dinámico, damos vida a tu historia con visuales que dejan una impresión duradera. Nuestro enfoque está en destacar lo que hace única a cada marca. Ya sea que necesites contenido para tu sitio web, redes sociales o campañas de marketing, entregamos soluciones creativas y de alta calidad diseñadas para captar la atención e inspirar confianza. Más que creadores de contenido, somos tus socios creativos — comprometidos a ayudar a tu marca a destacar en el mundo digital de hoy.",
+    "cta": "Sobre Nosotros",
+    "secondary": "Ver Portafolio"
+  },
+  "about": {
+    "title": "Sobre Nosotros",
+    "description": "En BYTE STUDIO, creamos contenido visual poderoso que ayuda a las marcas a conectar, involucrar y crecer. Desde fotografía impresionante hasta producción de video dinámico, damos vida a tu historia con visuales que dejan una impresión duradera. Nuestro enfoque está en destacar lo que hace única a cada marca. Ya sea que necesites contenido para tu sitio web, redes sociales o campañas de marketing, entregamos soluciones creativas y de alta calidad diseñadas para captar la atención e inspirar confianza. Más que creadores de contenido, somos tus socios creativos — comprometidos a ayudar a tu marca a destacar en el mundo digital de hoy.",
+    "team": "Nuestro Equipo"
+  },
+  "gallery": {
+    "photos": "Fotos",
+    "videos": "Videos",
+    "web": "Proyectos Web"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "description": "Descubre nuestra gama completa de servicios creativos diseñados para elevar tu marca y cautivar a tu audiencia.",
+    "photography": {
+      "title": "Fotografía",
+      "description": "Fotografía profesional de comida y bebidas que captura la esencia de tu marca. Desde fotos de productos hasta imágenes de estilo de vida, creamos visuales impresionantes que hacen irresistible tu oferta."
+    },
+    "videography": {
+      "title": "Producción de Video",
+      "description": "Contenido de video dinámico que da vida a tu marca. Desde videos promocionales hasta contenido para redes sociales, creamos historias atractivas que conectan con tu audiencia y generan resultados."
+    },
+    "webDevelopment": {
+      "title": "Desarrollo de Sitios Web",
+      "description": "Sitios web modernos y responsivos que muestran tu marca perfectamente. Construimos sitios rápidos, hermosos y fáciles de usar que convierten visitantes en clientes."
+    },
+    "branding": {
+      "title": "Storytelling de Marca",
+      "description": "Soluciones completas de identidad de marca y storytelling. Te ayudamos a definir tu voz única y crear narrativas visuales cohesivas que resuenan con tu audiencia objetivo."
+    },
+    "viewPortfolio": "Ver Portafolio"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Encuentra respuestas a las preguntas más comunes sobre nuestros servicios",
+    "questions": {
+      "q1": "¿Qué servicios ofrecen?",
+      "a1": "Ofrecemos servicios de fotografía, videografía, estrategia de marketing e identidad de marca.",
+      "q2": "¿Cuánto tiempo toma un proyecto?",
+      "a2": "Los tiempos de proyecto varían según el alcance y la complejidad. Proporcionaremos una línea de tiempo detallada durante nuestra consulta inicial.",
+      "q3": "¿Trabajan con pequeñas empresas?",
+      "a3": "¡Sí! Trabajamos con empresas de todos los tamaños, desde startups hasta corporaciones establecidas."
+    },
+    "backToHome": "Volver al inicio"
+  },
+  "photography": {
+    "title": "FOTOGRAFÍA",
+    "subtitle": "Capturando momentos que cuentan tu historia",
+    "loading": "Cargando más fotos...",
+    "backToServices": "Volver a Servicios"
+  },
+  "videos": {
+    "title": "GALERÍA DE VIDEOS",
+    "subtitle": "Dando vida a tus historias",
+    "loading": "Cargando más videos...",
+    "backToServices": "Volver a Servicios"
+  },
+  "footer": {
+    "description": "Creamos contenido visual poderoso que ayuda a las marcas a conectar, involucrar y crecer. Más que creadores de contenido, somos tus socios creativos.",
+    "services": {
+      "title": "Nuestros Servicios",
+      "photography": "Fotografía",
+      "videography": "Producción de Video",
+      "webDevelopment": "Desarrollo de Sitios Web",
+      "branding": "Storytelling de Marca"
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "email": "hello@bytestudio.com",
+      "phone": "+1 (555) 123-4567",
+      "location": "New Jersey, Estados Unidos",
+      "hours": "Lun - Vie: 9AM - 6PM"
+    },
+    "copyright": "Todos los derechos reservados.",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio"
+  }
+}

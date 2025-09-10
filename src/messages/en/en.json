@@ -1,0 +1,89 @@
+{
+  "navigation": {
+    "services": "Services",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "title": "Your vision, our creation.",
+    "subtitle": "Bring your brand to life. From engaging content to stunning websites, we build your digital presence.",
+    "description": "At BYTE STUDIO, we create powerful visual content that helps brands connect, engage, and grow. From stunning photography to dynamic video production, we bring your story to life with visuals that leave a lasting impression. Our focus is on highlighting what makes each brand unique. Whether you need content for your website, social media, or marketing campaigns, we deliver creative, high-quality solutions designed to capture attention and inspire trust. More than just content creators, we're your creative partners — committed to helping your brand stand out in today's digital world.",
+    "cta": "About Us",
+    "secondary": "View Portfolio"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "At BYTE STUDIO, we create powerful visual content that helps brands connect, engage, and grow. From stunning photography to dynamic video production, we bring your story to life with visuals that leave a lasting impression. Our focus is on highlighting what makes each brand unique. Whether you need content for your website, social media, or marketing campaigns, we deliver creative, high-quality solutions designed to capture attention and inspire trust. More than just content creators, we're your creative partners — committed to helping your brand stand out in today's digital world.",
+    "team": "Our Team"
+  },
+  "gallery": {
+    "photos": "Photos",
+    "videos": "Videos",
+    "web": "Web Projects"
+  },
+  "services": {
+    "title": "Our Services",
+    "description": "Discover our comprehensive range of creative services designed to elevate your brand and captivate your audience.",
+    "photography": {
+      "title": "Photography",
+      "description": "Professional food and beverage photography that captures the essence of your brand. From product shots to lifestyle imagery, we create stunning visuals that make your offerings irresistible."
+    },
+    "videography": {
+      "title": "Video Production",
+      "description": "Dynamic video content that brings your brand to life. From promotional videos to social media content, we create engaging stories that connect with your audience and drive results."
+    },
+    "webDevelopment": {
+      "title": "Website Development",
+      "description": "Modern, responsive websites that showcase your brand perfectly. We build fast, beautiful, and user-friendly sites that convert visitors into customers."
+    },
+    "branding": {
+      "title": "Brand Storytelling",
+      "description": "Complete brand identity and storytelling solutions. We help you define your unique voice and create cohesive visual narratives that resonate with your target audience."
+    },
+    "viewPortfolio": "View Portfolio"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to the most common questions about our services",
+    "questions": {
+      "q1": "What services do you offer?",
+      "a1": "We offer photography, videography, marketing strategy, and brand identity services.",
+      "q2": "How long does a project take?",
+      "a2": "Project timelines vary depending on scope and complexity. We'll provide a detailed timeline during our initial consultation.",
+      "q3": "Do you work with small businesses?",
+      "a3": "Yes! We work with businesses of all sizes, from startups to established corporations."
+    },
+    "backToHome": "Back to home"
+  },
+  "photography": {
+    "title": "PHOTOGRAPHY",
+    "subtitle": "Capturing moments that tell your story",
+    "loading": "Loading more photos...",
+    "backToServices": "Back to Services"
+  },
+  "videos": {
+    "title": "VIDEO GALLERY",
+    "subtitle": "Bringing your stories to life",
+    "loading": "Loading more videos...",
+    "backToServices": "Back to Services"
+  },
+  "footer": {
+    "description": "We create powerful visual content that helps brands connect, engage, and grow. More than just content creators, we're your creative partners.",
+    "services": {
+      "title": "Our Services",
+      "photography": "Photography",
+      "videography": "Video Production",
+      "webDevelopment": "Website Development",
+      "branding": "Brand Storytelling"
+    },
+    "contact": {
+      "title": "Get In Touch",
+      "email": "hello@bytestudio.com",
+      "phone": "+1 (555) 123-4567",
+      "location": "New Jersey, United States",
+      "hours": "Mon - Fri: 9AM - 6PM"
+    },
+    "copyright": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  }
+}
