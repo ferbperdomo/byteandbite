@@ -175,6 +175,7 @@ function ServiceCard({ service, index, isVisible }: ServiceCardProps) {
                     loop
                     playsInline
                     autoPlay
+                    poster={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/video/upload/so_0/${item.public_id}.jpg`}
                   />
                 ) : (
                   <Image

@@ -131,4 +131,33 @@ export function getOptimizedImageUrl(
   });
 }
 
+// Generate video poster/thumbnail URL
+export function getVideoPosterUrl(
+  publicId: string,
+  options: {
+    width?: number;
+    height?: number;
+    quality?: string;
+    time?: number; // Time in seconds for the frame to capture
+  } = {}
+) {
+  const {
+    width = 800,
+    height = 600,
+    quality = "auto",
+    time = 0,
+  } = options;
+
+  return cloudinary.url(publicId, {
+    resource_type: "video",
+    format: "jpg",
+    width,
+    height,
+    crop: "fill",
+    quality,
+    secure: true,
+    start_offset: time,
+  });
+}
+
 export default cloudinary;
