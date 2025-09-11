@@ -1,6 +1,9 @@
 {
   "navigation": {
     "services": "Servicios",
+    "photoGallery": "Galería de Fotos",
+    "videoGallery": "Galería de Videos",
+    "webGallery": "Galería Web",
     "faq": "Preguntas Frecuentes"
   },
   "hero": {
@@ -47,7 +50,7 @@
   "web": {
     "hero": {
       "title": "Desarrollo Web",
-      "subtitle": "Sitios web modernos, escalables y hermosos que generan resultados",
+      "subtitle": "Sitios web modernos, escalables y atractivos que generan resultados",
       "description": "Creamos soluciones web de vanguardia utilizando las últimas tecnologías. Desde diseño responsivo hasta aplicaciones complejas, construimos experiencias digitales que involucran a los usuarios y hacen crecer tu negocio."
     },
     "technologies": {
@@ -107,7 +110,11 @@
     "architecture": {
       "title": "Arquitectura Escalable",
       "subtitle": "Construido para rendimiento y crecimiento",
-      "description": "Diseñamos arquitecturas robustas y escalables que pueden manejar el crecimiento mientras mantienen tiempos de carga rápidos y rendimiento óptimo en todos los dispositivos."
+      "description": "Diseñamos arquitecturas robustas y escalables que pueden manejar el crecimiento mientras mantienen tiempos de carga rápidos y rendimiento óptimo en todos los dispositivos.",
+      "users": "Usuarios",
+      "frontend": "Frontend (React/Next.js)",
+      "api": "Capa API (Node.js/Express)",
+      "database": "Base de Datos (PostgreSQL/MongoDB)"
     },
     "database": {
       "title": "Gestión de Datos",

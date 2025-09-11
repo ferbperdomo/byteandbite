@@ -1376,63 +1376,106 @@ function GravityEffectsDemo({ isInView }: { isInView: boolean }) {
 function ArchitectureDiagram() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
+  const t = useTranslations("web.architecture");
 
   return (
     <motion.div
       ref={ref}
-      className="relative max-w-4xl mx-auto"
+      className="relative max-w-6xl mx-auto"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 1, delay: 0.4 }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <ArchitectureLayer
-          title="Frontend"
-          color="from-blue-500 to-cyan-500"
-          delay={0.6}
-        />
-        <ArchitectureLayer
-          title="Backend"
-          color="from-green-500 to-emerald-500"
-          delay={0.8}
-        />
-        <ArchitectureLayer
-          title="Database"
-          color="from-purple-500 to-violet-500"
-          delay={1.0}
-        />
-      </div>
-    </motion.div>
-  );
-}
+      <div className="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-8 border border-white/10">
+        {/* User Layer */}
+        <motion.div
+          className="flex justify-center mb-8"
+          initial={{ y: -20, opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <div className="bg-gradient-to-r from-[#b65c25] to-[#d97316] text-white px-6 py-3 rounded-xl font-semibold">
+            👤 {t("users")}
+          </div>
+        </motion.div>
 
-function ArchitectureLayer({
-  title,
-  color,
-  delay,
-}: {
-  title: string;
-  color: string;
-  delay: number;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
-
-  return (
-    <motion.div
-      ref={ref}
-      className="relative"
-      initial={{ y: 50, opacity: 0 }}
-      animate={isInView ? { y: 0, opacity: 1 } : {}}
-      transition={{ duration: 0.8, delay }}
-    >
-      <div className={`relative bg-gradient-to-br ${color} p-6 rounded-xl`}>
-        <h3 className="text-white font-bold text-lg mb-4">{title}</h3>
-        <div className="space-y-2">
-          <div className="h-2 bg-white/30 rounded"></div>
-          <div className="h-2 bg-white/20 rounded w-3/4"></div>
-          <div className="h-2 bg-white/10 rounded w-1/2"></div>
+        {/* Connection Lines */}
+        <div className="flex justify-center mb-8">
+          <div className="w-1 h-8 bg-gradient-to-b from-[#b65c25] to-transparent"></div>
         </div>
+
+        {/* Frontend Layer */}
+        <motion.div
+          className="flex justify-center mb-8"
+          initial={{ y: 20, opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-xl font-semibold text-lg">
+            🖥️ {t("frontend")}
+          </div>
+        </motion.div>
+
+        {/* Connection Lines */}
+        <div className="flex justify-center mb-8">
+          <div className="w-1 h-8 bg-gradient-to-b from-cyan-500 to-transparent"></div>
+        </div>
+
+        {/* API Layer */}
+        <motion.div
+          className="flex justify-center mb-8"
+          initial={{ y: 20, opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 1.0 }}
+        >
+          <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-xl font-semibold text-lg">
+            🔌 {t("api")}
+          </div>
+        </motion.div>
+
+        {/* Connection Lines */}
+        <div className="flex justify-center mb-8">
+          <div className="w-1 h-8 bg-gradient-to-b from-emerald-500 to-transparent"></div>
+        </div>
+
+        {/* Database Layer */}
+        <motion.div
+          className="flex justify-center"
+          initial={{ y: 20, opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 1.2 }}
+        >
+          <div className="bg-gradient-to-r from-purple-500 to-violet-500 text-white px-8 py-4 rounded-xl font-semibold text-lg">
+            🗄️ {t("database")}
+          </div>
+        </motion.div>
+
+        {/* Floating Elements */}
+        <motion.div
+          className="absolute top-4 right-4 w-3 h-3 bg-[#b65c25] rounded-full"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-4 left-4 w-2 h-2 bg-[#d97316] rounded-full"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.3, 0.8, 0.3],
+          }}
+          transition={{
+            duration: 1.8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+        />
       </div>
     </motion.div>
   );
@@ -1453,7 +1496,7 @@ function DatabaseVisualization() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <DatabaseCard title="PostgreSQL" icon="🐘" delay={0.6} />
         <DatabaseCard title="MongoDB" icon="🍃" delay={0.8} />
-        <DatabaseCard title="Redis" icon="🔴" delay={1.0} />
+        <DatabaseCard title="MySQL" icon="🐬" delay={1.0} />
         <DatabaseCard title="Cloud Storage" icon="☁️" delay={1.2} />
       </div>
     </motion.div>

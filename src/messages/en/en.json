@@ -1,6 +1,9 @@
 {
   "navigation": {
     "services": "Services",
+    "photoGallery": "Photo Gallery",
+    "videoGallery": "Video Gallery",
+    "webGallery": "Web Gallery",
     "faq": "FAQ"
   },
   "hero": {
@@ -107,7 +110,11 @@
     "architecture": {
       "title": "Scalable Architecture",
       "subtitle": "Built for performance and growth",
-      "description": "We design robust, scalable architectures that can handle growth while maintaining fast load times and optimal performance across all devices."
+      "description": "We design robust, scalable architectures that can handle growth while maintaining fast load times and optimal performance across all devices.",
+      "users": "Users",
+      "frontend": "Frontend (React/Next.js)",
+      "api": "API Layer (Node.js/Express)",
+      "database": "Database (PostgreSQL/MongoDB)"
     },
     "database": {
       "title": "Data Management",

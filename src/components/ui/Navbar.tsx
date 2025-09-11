@@ -41,7 +41,8 @@ export default function Navbar() {
   const toggleLanguage = () => {
     const newLocale = currentLocale === "en" ? "es" : "en";
     setCurrentLocale(newLocale);
-    router.push("/", { locale: newLocale });
+    // Keep current path but change locale
+    router.push(pathname, { locale: newLocale });
   };
 
   return (
@@ -102,7 +103,7 @@ export default function Navbar() {
                   : "opacity-0 translate-y-4"
               }`}
             >
-              Photo Gallery
+              {t("photoGallery")}
             </Link>
             <Link
               href="/videos"
@@ -112,7 +113,17 @@ export default function Navbar() {
                   : "opacity-0 translate-y-4"
               }`}
             >
-              Video Gallery
+              {t("videoGallery")}
+            </Link>
+            <Link
+              href="/web"
+              className={`text-[#b65c25] hover:text-[#a55220] px-3 py-2 text-md font-medium transition-all duration-500 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(182,92,37,0.3)] delay-[650ms] ${
+                isLoaded
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+              }`}
+            >
+              {t("webGallery")}
             </Link>
             <Link
               href={currentLocale === "es" ? "/preguntas-frecuentes" : "/faq"}
@@ -238,14 +249,21 @@ export default function Navbar() {
               className="text-[#b65c25] no-underline text-lg font-medium hover:text-[#a55220] transition-all duration-300 hover:scale-105"
               onClick={() => setIsMenuOpen(false)}
             >
-              Photo Gallery
+              {t("photoGallery")}
             </Link>
             <Link
               href="/videos"
               className="text-[#b65c25] no-underline text-lg font-medium hover:text-[#a55220] transition-all duration-300 hover:scale-105"
               onClick={() => setIsMenuOpen(false)}
             >
-              Video Gallery
+              {t("videoGallery")}
+            </Link>
+            <Link
+              href="/web"
+              className="text-[#b65c25] no-underline text-lg font-medium hover:text-[#a55220] transition-all duration-300 hover:scale-105"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t("webGallery")}
             </Link>
             <Link
               href={currentLocale === "es" ? "/preguntas-frecuentes" : "/faq"}
