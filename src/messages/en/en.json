@@ -39,7 +39,85 @@
       "title": "Brand Storytelling",
       "description": "Complete brand identity and storytelling solutions. We help you define your unique voice and create cohesive visual narratives that resonate with your target audience."
     },
-    "viewPortfolio": "View Portfolio"
+    "viewPortfolio": "View Portfolio",
+    "explorePhotography": "Explore Photography",
+    "exploreVideography": "Explore Videos",
+    "exploreWeb": "Explore Websites"
+  },
+  "web": {
+    "hero": {
+      "title": "Web Development",
+      "subtitle": "Modern, scalable, and beautiful websites that drive results",
+      "description": "We create cutting-edge web solutions using the latest technologies. From responsive design to complex applications, we build digital experiences that engage users and grow your business."
+    },
+    "technologies": {
+      "title": "Modern Technologies",
+      "subtitle": "Built with the latest tools and frameworks",
+      "frontend": {
+        "title": "Frontend",
+        "description": "React, Next.js, Vue.js, TypeScript, Tailwind CSS"
+      },
+      "backend": {
+        "title": "Backend",
+        "description": "Node.js, Express.js, Prisma, Supabase, APIs"
+      },
+      "database": {
+        "title": "Database",
+        "description": "PostgreSQL, MongoDB, MySQL, Cloud Storage"
+      },
+      "deployment": {
+        "title": "Deployment",
+        "description": "Vercel, AWS, Netlify, CI/CD, Git"
+      }
+    },
+    "components": {
+      "title": "Modern Components",
+      "subtitle": "Interactive UI elements that enhance user experience",
+      "description": "We create custom components with smooth animations, responsive design, and intuitive interactions that make your website stand out."
+    },
+    "animations": {
+      "title": "Interactive Animations",
+      "subtitle": "Engaging micro-interactions and smooth transitions",
+      "description": "From subtle hover effects to complex page transitions, we bring your website to life with carefully crafted animations that guide users and create memorable experiences.",
+      "parallax": {
+        "title": "Parallax Layers",
+        "description": "Multiple layers moving at different speeds for depth"
+      },
+      "neumorphism": {
+        "title": "Neumorphism",
+        "description": "Soft, elevated elements with depth and relief"
+      },
+      "animatedIcons": {
+        "title": "Animated Icons",
+        "description": "Icons that transform and animate"
+      },
+      "revealAnimations": {
+        "title": "Reveal Animations",
+        "description": "Elements that appear with unique effects",
+        "slideIn": "Slide In",
+        "fadeIn": "Fade In",
+        "scaleIn": "Scale In",
+        "rotateIn": "Rotate In"
+      },
+      "gravityEffects": {
+        "title": "Gravity Effects",
+        "description": "Elements that fall and bounce with physics"
+      }
+    },
+    "architecture": {
+      "title": "Scalable Architecture",
+      "subtitle": "Built for performance and growth",
+      "description": "We design robust, scalable architectures that can handle growth while maintaining fast load times and optimal performance across all devices."
+    },
+    "database": {
+      "title": "Data Management",
+      "subtitle": "Efficient data handling and storage solutions",
+      "description": "From simple content management to complex data processing, we implement secure and efficient database solutions tailored to your specific needs."
+    },
+    "portfolio": {
+      "title": "Our Work",
+      "subtitle": "Recent web development projects"
+    }
   },
   "faq": {
     "title": "Frequently Asked Questions",

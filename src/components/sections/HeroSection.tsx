@@ -1,6 +1,7 @@
 "use client";
 
 import AboutModal from "@/components/ui/AboutModal";
+import { Link } from "@/i18n/navigation";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -92,9 +93,12 @@ export default function HeroSection() {
                 {t("cta")}
               </button>
 
-              <button className="bg-transparent text-white px-8 py-4 rounded-lg text-lg font-semibold border-2 border-white cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black">
+              <Link
+                href="/#services"
+                className="bg-transparent text-white px-8 py-4 rounded-lg text-lg font-semibold border-2 border-white cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black inline-block text-center"
+              >
                 {t("secondary")}
-              </button>
+              </Link>
             </motion.div>
           </div>
         </motion.div>
@@ -180,9 +184,12 @@ export default function HeroSection() {
                 {t("cta")}
               </button>
 
-              <button className="bg-transparent text-white px-8 py-4 rounded-lg text-sm md:text-lg font-semibold border-2 border-white cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black">
+              <Link
+                href="/#services"
+                className="bg-transparent text-white px-8 py-4 rounded-lg text-sm md:text-lg font-semibold border-2 border-white cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black inline-block text-center"
+              >
                 {t("secondary")}
-              </button>
+              </Link>
             </motion.div>
           </div>
         </motion.div>

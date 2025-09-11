@@ -41,8 +41,7 @@ export default function Navbar() {
   const toggleLanguage = () => {
     const newLocale = currentLocale === "en" ? "es" : "en";
     setCurrentLocale(newLocale);
-    const newPath = `/${newLocale}`;
-    router.push(newPath);
+    router.push("/", { locale: newLocale });
   };
 
   return (
@@ -56,14 +55,19 @@ export default function Navbar() {
                 : "opacity-0 translate-y-4 scale-95"
             }`}
           >
-            <Image
-              src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png"
-              alt="Byte & Bite"
-              width={120}
-              height={60}
-              className="h-12 w-auto relative z-10"
-              priority
-            />
+            <Link
+              href="/"
+              className="hover:opacity-80 transition-opacity duration-300"
+            >
+              <Image
+                src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png"
+                alt="Byte & Bite"
+                width={120}
+                height={60}
+                className="h-12 w-auto relative z-10"
+                priority
+              />
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">

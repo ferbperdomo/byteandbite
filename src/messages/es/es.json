@@ -39,7 +39,85 @@
       "title": "Storytelling de Marca",
       "description": "Soluciones completas de identidad de marca y storytelling. Te ayudamos a definir tu voz única y crear narrativas visuales cohesivas que resuenan con tu audiencia objetivo."
     },
-    "viewPortfolio": "Ver Portafolio"
+    "viewPortfolio": "Ver Portafolio",
+    "explorePhotography": "Explorar Fotografías",
+    "exploreVideography": "Explorar Videos",
+    "exploreWeb": "Explorar Sitios Web"
+  },
+  "web": {
+    "hero": {
+      "title": "Desarrollo Web",
+      "subtitle": "Sitios web modernos, escalables y hermosos que generan resultados",
+      "description": "Creamos soluciones web de vanguardia utilizando las últimas tecnologías. Desde diseño responsivo hasta aplicaciones complejas, construimos experiencias digitales que involucran a los usuarios y hacen crecer tu negocio."
+    },
+    "technologies": {
+      "title": "Tecnologías Modernas",
+      "subtitle": "Construido con las últimas herramientas y frameworks",
+      "frontend": {
+        "title": "Frontend",
+        "description": "React, Next.js, Vue.js, TypeScript, Tailwind CSS"
+      },
+      "backend": {
+        "title": "Backend",
+        "description": "Node.js, Express.js, Prisma, Supabase, APIs"
+      },
+      "database": {
+        "title": "Base de Datos",
+        "description": "PostgreSQL, MongoDB, MySQL, Almacenamiento en la Nube"
+      },
+      "deployment": {
+        "title": "Despliegue",
+        "description": "Vercel, AWS, Netlify, CI/CD, Git"
+      }
+    },
+    "components": {
+      "title": "Componentes Modernos",
+      "subtitle": "Elementos de UI interactivos que mejoran la experiencia del usuario",
+      "description": "Creamos componentes personalizados con animaciones suaves, diseño responsivo e interacciones intuitivas que hacen que tu sitio web destaque."
+    },
+    "animations": {
+      "title": "Animaciones Interactivas",
+      "subtitle": "Micro-interacciones atractivas y transiciones suaves",
+      "description": "Desde efectos de hover sutiles hasta transiciones de página complejas, damos vida a tu sitio web con animaciones cuidadosamente elaboradas que guían a los usuarios y crean experiencias memorables.",
+      "parallax": {
+        "title": "Capas Parallax",
+        "description": "Múltiples capas moviéndose a diferentes velocidades para crear profundidad"
+      },
+      "neumorphism": {
+        "title": "Neumorfismo",
+        "description": "Elementos suaves y elevados con profundidad y relieve"
+      },
+      "animatedIcons": {
+        "title": "Iconos Animados",
+        "description": "Iconos que se transforman y animan"
+      },
+      "revealAnimations": {
+        "title": "Animaciones de Revelado",
+        "description": "Elementos que aparecen con efectos únicos",
+        "slideIn": "Deslizar",
+        "fadeIn": "Desvanecer",
+        "scaleIn": "Escalar",
+        "rotateIn": "Rotar"
+      },
+      "gravityEffects": {
+        "title": "Efectos de Gravedad",
+        "description": "Elementos que caen y rebotan con física"
+      }
+    },
+    "architecture": {
+      "title": "Arquitectura Escalable",
+      "subtitle": "Construido para rendimiento y crecimiento",
+      "description": "Diseñamos arquitecturas robustas y escalables que pueden manejar el crecimiento mientras mantienen tiempos de carga rápidos y rendimiento óptimo en todos los dispositivos."
+    },
+    "database": {
+      "title": "Gestión de Datos",
+      "subtitle": "Soluciones eficientes de manejo y almacenamiento de datos",
+      "description": "Desde gestión de contenido simple hasta procesamiento de datos complejo, implementamos soluciones de base de datos seguras y eficientes adaptadas a tus necesidades específicas."
+    },
+    "portfolio": {
+      "title": "Nuestro Trabajo",
+      "subtitle": "Proyectos recientes de desarrollo web"
+    }
   },
   "faq": {
     "title": "Preguntas Frecuentes",

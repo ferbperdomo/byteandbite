@@ -203,7 +203,11 @@ function ServiceCard({ service, index, isVisible }: ServiceCardProps) {
           </p>
           <div className="mt-auto">
             <div className="inline-block bg-[#b65c25] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-[#a55220] hover:scale-105">
-              {t("services.viewPortfolio")}
+              {service.key === "photography" &&
+                t("services.explorePhotography")}
+              {service.key === "videography" &&
+                t("services.exploreVideography")}
+              {service.key === "webDevelopment" && t("services.exploreWeb")}
             </div>
           </div>
         </div>
