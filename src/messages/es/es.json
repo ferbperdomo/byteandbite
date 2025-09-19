@@ -54,24 +54,25 @@
       "subtitle": "Sitios web modernos, escalables y atractivos que generan resultados",
       "description": "Creamos soluciones web de vanguardia utilizando las últimas tecnologías. Desde diseño responsivo hasta aplicaciones complejas, construimos experiencias digitales que involucran a los usuarios y hacen crecer tu negocio."
     },
-    "technologies": {
-      "title": "Tecnologías Modernas",
-      "subtitle": "Construido con las últimas herramientas y frameworks",
-      "frontend": {
-        "title": "Frontend",
-        "description": "React, Next.js, Vue.js, TypeScript, Tailwind CSS"
+    "benefits": {
+      "title": "¿Por qué elegirnos?",
+      "subtitle": "Creamos sitios web que funcionan para tu negocio",
+      "description": "Nuestro enfoque está en resultados, no en jerga técnica. Construimos sitios web que tus clientes amarán y que ayudarán a hacer crecer tu negocio.",
+      "speed": {
+        "title": "Súper Rápido",
+        "description": "Sitios web súper rápidos que cargan en segundos"
       },
-      "backend": {
-        "title": "Backend",
-        "description": "Node.js, Express.js, Prisma, Supabase, APIs"
+      "security": {
+        "title": "Seguridad Total",
+        "description": "Protección completa para datos y transacciones"
       },
-      "database": {
-        "title": "Base de Datos",
-        "description": "PostgreSQL, MongoDB, MySQL, Almacenamiento en la Nube"
+      "mobile": {
+        "title": "Perfecto en Cualquier Dispositivo",
+        "description": "Se ve increíble en teléfonos, tablets y computadoras"
       },
-      "deployment": {
-        "title": "Despliegue",
-        "description": "Vercel, AWS, Netlify, CI/CD, Git"
+      "seo": {
+        "title": "Amigable con Google",
+        "description": "Aparece primero en las búsquedas de Google"
       }
     },
     "components": {
@@ -79,43 +80,33 @@
       "subtitle": "Elementos de UI interactivos que mejoran la experiencia del usuario",
       "description": "Creamos componentes personalizados con animaciones suaves, diseño responsivo e interacciones intuitivas que hacen que tu sitio web destaque."
     },
-    "animations": {
-      "title": "Animaciones Interactivas",
-      "subtitle": "Micro-interacciones atractivas y transiciones suaves",
-      "description": "Desde efectos de hover sutiles hasta transiciones de página complejas, damos vida a tu sitio web con animaciones cuidadosamente elaboradas que guían a los usuarios y crean experiencias memorables.",
-      "parallax": {
-        "title": "Capas Parallax",
-        "description": "Múltiples capas moviéndose a diferentes velocidades para crear profundidad"
+    "process": {
+      "title": "Nuestro Proceso de Trabajo",
+      "subtitle": "De la idea al lanzamiento, nos encargamos de todo",
+      "description": "No necesitas saber sobre tecnología. Nos encargamos de todo mientras te enfocas en hacer crecer tu negocio.",
+      "consultation": {
+        "title": "1. Consulta",
+        "description": "Entendemos tu negocio y objetivos"
       },
-      "neumorphism": {
-        "title": "Neumorfismo",
-        "description": "Elementos suaves y elevados con profundidad y relieve"
+      "design": {
+        "title": "2. Diseño",
+        "description": "Creamos tu visión con diseños profesionales"
       },
-      "animatedIcons": {
-        "title": "Iconos Animados",
-        "description": "Iconos que se transforman y animan"
+      "development": {
+        "title": "3. Desarrollo",
+        "description": "Construimos tu sitio web con la última tecnología"
       },
-      "revealAnimations": {
-        "title": "Animaciones de Revelado",
-        "description": "Elementos que aparecen con efectos únicos",
-        "slideIn": "Deslizar",
-        "fadeIn": "Desvanecer",
-        "scaleIn": "Escalar",
-        "rotateIn": "Rotar"
-      },
-      "gravityEffects": {
-        "title": "Efectos de Gravedad",
-        "description": "Elementos que caen y rebotan con física"
+      "launch": {
+        "title": "4. Lanzamiento",
+        "description": "Tu sitio web se pone en línea y comienza a trabajar para ti"
       }
     },
-    "architecture": {
-      "title": "Arquitectura Escalable",
-      "subtitle": "Construido para rendimiento y crecimiento",
-      "description": "Diseñamos arquitecturas robustas y escalables que pueden manejar el crecimiento mientras mantienen tiempos de carga rápidos y rendimiento óptimo en todos los dispositivos.",
-      "users": "Usuarios",
-      "frontend": "Frontend (React/Next.js)",
-      "api": "Capa API (Node.js/Express)",
-      "database": "Base de Datos (PostgreSQL/MongoDB)"
+    "success": {
+      "title": "Casos de Éxito",
+      "subtitle": "Resultados reales para negocios reales",
+      "description": "Ve cómo hemos ayudado a negocios como el tuyo a crecer con sitios web profesionales que convierten visitantes en clientes.",
+      "viewProject": "Ver Proyecto",
+      "results": "Resultados obtenidos"
     },
     "database": {
       "title": "Gestión de Datos",
@@ -197,5 +188,13 @@
     "successMessage": "¡Gracias! Tu mensaje ha sido enviado exitosamente. Te responderemos pronto.",
     "errorMessage": "Por favor revisa tu información e intenta de nuevo. Asegúrate de que todos los campos requeridos estén llenos correctamente.",
     "contactInfo": "Información de Contacto"
+  },
+  "notFound": {
+    "title": "¡Ups! Página No Encontrada",
+    "description": "La página que buscas parece haber desaparecido en el vacío digital. ¡No te preocupes, incluso los mejores fotógrafos se pierden un disparo a veces!",
+    "goHome": "Ir al Inicio",
+    "contactUs": "Contáctanos",
+    "quote": "\"Todo gran fotógrafo sabe que a veces las mejores tomas son las que no planeaste.\"",
+    "team": "Equipo Byte Studio"
   }
 }

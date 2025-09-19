@@ -54,24 +54,25 @@
       "subtitle": "Modern, scalable, and beautiful websites that drive results",
       "description": "We create cutting-edge web solutions using the latest technologies. From responsive design to complex applications, we build digital experiences that engage users and grow your business."
     },
-    "technologies": {
-      "title": "Modern Technologies",
-      "subtitle": "Built with the latest tools and frameworks",
-      "frontend": {
-        "title": "Frontend",
-        "description": "React, Next.js, Vue.js, TypeScript, Tailwind CSS"
+    "benefits": {
+      "title": "Why Choose Us?",
+      "subtitle": "We create websites that work for your business",
+      "description": "Our focus is on results, not technical jargon. We build websites that your customers will love and that will help grow your business.",
+      "speed": {
+        "title": "Lightning Fast",
+        "description": "Super fast websites that load in seconds"
       },
-      "backend": {
-        "title": "Backend",
-        "description": "Node.js, Express.js, Prisma, Supabase, APIs"
+      "security": {
+        "title": "Total Security",
+        "description": "Complete protection for data and transactions"
       },
-      "database": {
-        "title": "Database",
-        "description": "PostgreSQL, MongoDB, MySQL, Cloud Storage"
+      "mobile": {
+        "title": "Perfect on Any Device",
+        "description": "Looks amazing on phones, tablets, and computers"
       },
-      "deployment": {
-        "title": "Deployment",
-        "description": "Vercel, AWS, Netlify, CI/CD, Git"
+      "seo": {
+        "title": "Google Friendly",
+        "description": "Appear first in Google searches"
       }
     },
     "components": {
@@ -79,43 +80,33 @@
       "subtitle": "Interactive UI elements that enhance user experience",
       "description": "We create custom components with smooth animations, responsive design, and intuitive interactions that make your website stand out."
     },
-    "animations": {
-      "title": "Interactive Animations",
-      "subtitle": "Engaging micro-interactions and smooth transitions",
-      "description": "From subtle hover effects to complex page transitions, we bring your website to life with carefully crafted animations that guide users and create memorable experiences.",
-      "parallax": {
-        "title": "Parallax Layers",
-        "description": "Multiple layers moving at different speeds for depth"
+    "process": {
+      "title": "Our Work Process",
+      "subtitle": "From idea to launch, we handle everything",
+      "description": "You don't need to know about technology. We take care of everything while you focus on growing your business.",
+      "consultation": {
+        "title": "1. Consultation",
+        "description": "We understand your business and goals"
       },
-      "neumorphism": {
-        "title": "Neumorphism",
-        "description": "Soft, elevated elements with depth and relief"
+      "design": {
+        "title": "2. Design",
+        "description": "We create your vision with professional designs"
       },
-      "animatedIcons": {
-        "title": "Animated Icons",
-        "description": "Icons that transform and animate"
+      "development": {
+        "title": "3. Development",
+        "description": "We build your website with the latest technology"
       },
-      "revealAnimations": {
-        "title": "Reveal Animations",
-        "description": "Elements that appear with unique effects",
-        "slideIn": "Slide In",
-        "fadeIn": "Fade In",
-        "scaleIn": "Scale In",
-        "rotateIn": "Rotate In"
-      },
-      "gravityEffects": {
-        "title": "Gravity Effects",
-        "description": "Elements that fall and bounce with physics"
+      "launch": {
+        "title": "4. Launch",
+        "description": "Your website goes live and starts working for you"
       }
     },
-    "architecture": {
-      "title": "Scalable Architecture",
-      "subtitle": "Built for performance and growth",
-      "description": "We design robust, scalable architectures that can handle growth while maintaining fast load times and optimal performance across all devices.",
-      "users": "Users",
-      "frontend": "Frontend (React/Next.js)",
-      "api": "API Layer (Node.js/Express)",
-      "database": "Database (PostgreSQL/MongoDB)"
+    "success": {
+      "title": "Success Stories",
+      "subtitle": "Real results for real businesses",
+      "description": "See how we've helped businesses like yours grow with professional websites that convert visitors into customers.",
+      "viewProject": "View Project",
+      "results": "Results achieved"
     },
     "database": {
       "title": "Data Management",
@@ -197,5 +188,13 @@
     "successMessage": "Thank you! Your message has been sent successfully. We'll get back to you soon.",
     "errorMessage": "Please check your information and try again. Make sure all required fields are filled correctly.",
     "contactInfo": "Contact Information"
+  },
+  "notFound": {
+    "title": "Oops! Page Not Found",
+    "description": "The page you're looking for seems to have vanished into the digital void. Don't worry, even the best photographers miss a shot sometimes!",
+    "goHome": "Go Home",
+    "contactUs": "Contact Us",
+    "quote": "\"Every great photographer knows that sometimes the best shots are the ones you didn't plan for.\"",
+    "team": "Byte Studio Team"
   }
 }
