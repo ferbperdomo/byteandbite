@@ -4,6 +4,7 @@
     "photoGallery": "Photo Gallery",
     "videoGallery": "Video Gallery",
     "webGallery": "Web Gallery",
+    "contact": "Contact",
     "faq": "FAQ"
   },
   "hero": {
@@ -170,5 +171,31 @@
     "copyright": "All rights reserved.",
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Ready to bring your vision to life? Let's discuss your project and create something amazing together.",
+    "formTitle": "Send us a message",
+    "formSubtitle": "Fill out the form below and we'll get back to you as soon as possible.",
+    "name": "Name",
+    "namePlaceholder": "Your full name",
+    "email": "Email",
+    "emailPlaceholder": "your.email@example.com",
+    "phone": "Phone",
+    "phonePlaceholder": "Your phone number (optional)",
+    "service": "Service",
+    "selectService": "Select a service",
+    "photography": "Photography",
+    "videography": "Videography",
+    "webDevelopment": "Web Development",
+    "consultation": "Consultation",
+    "other": "Other",
+    "message": "Message",
+    "messagePlaceholder": "Tell us about your project, ideas, or any questions you have...",
+    "sendMessage": "Send Message",
+    "sending": "Sending...",
+    "successMessage": "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+    "errorMessage": "Please check your information and try again. Make sure all required fields are filled correctly.",
+    "contactInfo": "Contact Information"
   }
 }

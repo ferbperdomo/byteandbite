@@ -4,6 +4,7 @@
     "photoGallery": "Galería de Fotos",
     "videoGallery": "Galería de Videos",
     "webGallery": "Galería Web",
+    "contact": "Contacto",
     "faq": "Preguntas Frecuentes"
   },
   "hero": {
@@ -170,5 +171,31 @@
     "copyright": "Todos los derechos reservados.",
     "privacyPolicy": "Política de Privacidad",
     "termsOfService": "Términos de Servicio"
+  },
+  "contact": {
+    "title": "Ponte en Contacto",
+    "subtitle": "¿Listo para dar vida a tu visión? Hablemos sobre tu proyecto y creemos algo increíble juntos.",
+    "formTitle": "Envíanos un mensaje",
+    "formSubtitle": "Completa el formulario a continuación y te responderemos lo antes posible.",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre completo",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "tu.correo@ejemplo.com",
+    "phone": "Teléfono",
+    "phonePlaceholder": "Tu número de teléfono (opcional)",
+    "service": "Servicio",
+    "selectService": "Selecciona un servicio",
+    "photography": "Fotografía",
+    "videography": "Videografía",
+    "webDevelopment": "Desarrollo Web",
+    "consultation": "Consultoría",
+    "other": "Otro",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntanos sobre tu proyecto, ideas o cualquier pregunta que tengas...",
+    "sendMessage": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "successMessage": "¡Gracias! Tu mensaje ha sido enviado exitosamente. Te responderemos pronto.",
+    "errorMessage": "Por favor revisa tu información e intenta de nuevo. Asegúrate de que todos los campos requeridos estén llenos correctamente.",
+    "contactInfo": "Información de Contacto"
   }
 }

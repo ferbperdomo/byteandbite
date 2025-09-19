@@ -126,8 +126,18 @@ export default function Navbar() {
               {t("webGallery")}
             </Link>
             <Link
-              href={currentLocale === "es" ? "/preguntas-frecuentes" : "/faq"}
+              href="/contact"
               className={`text-[#b65c25] hover:text-[#a55220] px-3 py-2 text-md font-medium transition-all duration-500 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(182,92,37,0.3)] delay-[700ms] ${
+                isLoaded
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+              }`}
+            >
+              {t("contact")}
+            </Link>
+            <Link
+              href={currentLocale === "es" ? "/preguntas-frecuentes" : "/faq"}
+              className={`text-[#b65c25] hover:text-[#a55220] px-3 py-2 text-md font-medium transition-all duration-500 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(182,92,37,0.3)] delay-[750ms] ${
                 isLoaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
@@ -264,6 +274,13 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               {t("webGallery")}
+            </Link>
+            <Link
+              href="/contact"
+              className="text-[#b65c25] no-underline text-lg font-medium hover:text-[#a55220] transition-all duration-300 hover:scale-105"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t("contact")}
             </Link>
             <Link
               href={currentLocale === "es" ? "/preguntas-frecuentes" : "/faq"}

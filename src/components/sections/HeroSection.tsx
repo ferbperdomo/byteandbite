@@ -21,7 +21,7 @@ export default function HeroSection() {
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <Image
-            src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1757493921/DSC09357_yyfwhs.jpg"
+            src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1758240466/DSC00123_vc8kpt.jpg"
             alt="BYTE STUDIO Hero Image"
             fill
             className="object-cover"
@@ -31,7 +31,7 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.div
-          className="absolute right-24 top-1/2 -translate-y-1/2 bg-black p-12 pl-16 text-center w-[25%] md:w-[40%] 2xl:w-[45%] h-[50vh] z-10 overflow-hidden"
+          className="absolute right-24 top-1/2 -translate-y-1/2 bg-black/80 backdrop-blur-xs p-12 pl-16 text-center w-[25%] md:w-[40%] 2xl:w-[45%] h-[50vh] z-10 overflow-hidden"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
@@ -122,7 +122,7 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.div
-          className="absolute bottom-0 left-0 right-0 translate-y-1/4 bg-black/90 backdrop-blur-sm p-8 pt-16 w-[90%] mx-auto overflow-hidden"
+           className="absolute bottom-0 left-0 right-0 translate-y-1/4 bg-black/80 backdrop-blur-xs p-8 pt-16 w-[90%] mx-auto overflow-hidden"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
