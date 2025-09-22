@@ -4,7 +4,7 @@ import VideoModal from "@/components/ui/VideoModal";
 import { CloudinaryResource } from "@/lib/cloudinary";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface VideoGalleryProps {
   videos: CloudinaryResource[];
@@ -56,6 +56,29 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
     setCurrentVideoIndex(newIndex);
     setSelectedVideo(videos[newIndex]);
   };
+
+  // Scroll to current video when modal closes
+  const scrollToCurrentVideo = useCallback(() => {
+    console.log('Scrolling to video index:', currentVideoIndex);
+    const videoElement = document.querySelector(`[data-video-index="${currentVideoIndex}"]`);
+    console.log('Found video element:', videoElement);
+    
+    if (videoElement) {
+      videoElement.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    } else {
+      console.log('Video element not found, using fallback');
+      // Fallback: scroll to the container
+      if (containerRef.current) {
+        containerRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+    }
+  }, [currentVideoIndex]);
 
   return (
     <div className="relative min-h-screen bg-black overflow-hidden">
@@ -142,6 +165,7 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
                 <motion.div
                   key={video.public_id}
                   className="cursor-pointer group"
+                  data-video-index={index}
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
@@ -212,7 +236,14 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
           video={selectedVideo}
           videos={videos}
           currentIndex={currentVideoIndex}
-          onClose={() => setSelectedVideo(null)}
+          onClose={() => {
+            setSelectedVideo(null);
+            // Scroll to the current video after closing modal
+            // Use a longer timeout to ensure modal is fully closed
+            setTimeout(() => {
+              scrollToCurrentVideo();
+            }, 300);
+          }}
           onVideoChange={handleVideoChange}
         />
       )}

@@ -20,7 +20,8 @@ export default function VideoModal({
   onVideoChange,
 }: VideoModalProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [showMobileArrows, setShowMobileArrows] = useState(false);
+  const [showMobileArrows, setShowMobileArrows] = useState(true);
+  const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleClose = useCallback(() => {
     if (videoRef.current) {
@@ -40,6 +41,40 @@ export default function VideoModal({
     onVideoChange(nextIndex);
   }, [currentIndex, videos.length, onVideoChange]);
 
+  // Show mobile arrows and set timeout to hide them
+  const showMobileArrowsWithTimeout = useCallback(() => {
+    setShowMobileArrows(true);
+
+    // Clear existing timeout
+    if (hideTimeoutRef.current) {
+      clearTimeout(hideTimeoutRef.current);
+    }
+
+    // Set new timeout to hide arrows after 3 seconds
+    hideTimeoutRef.current = setTimeout(() => {
+      setShowMobileArrows(false);
+    }, 3000);
+  }, []);
+
+  // Handle video interaction (tap/click) to show arrows
+  const handleVideoInteraction = useCallback(() => {
+    showMobileArrowsWithTimeout();
+  }, [showMobileArrowsWithTimeout]);
+
+  // Show arrows when video changes
+  useEffect(() => {
+    showMobileArrowsWithTimeout();
+  }, [currentIndex, showMobileArrowsWithTimeout]);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (hideTimeoutRef.current) {
+        clearTimeout(hideTimeoutRef.current);
+      }
+    };
+  }, []);
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -56,21 +91,20 @@ export default function VideoModal({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [handleClose, handlePrevious, handleNext]);
 
-  // Show arrows when video changes
+  // Show arrows when video changes and handle video events
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Show arrows immediately when video changes
-    setShowMobileArrows(true);
+    // Show arrows when video changes
+    showMobileArrowsWithTimeout();
 
     const handlePlay = () => {
-      // Don't hide arrows on play in mobile
-      setShowMobileArrows(true);
+      showMobileArrowsWithTimeout();
     };
 
     const handlePause = () => {
-      setShowMobileArrows(true);
+      showMobileArrowsWithTimeout();
     };
 
     video.addEventListener("play", handlePlay);
@@ -80,12 +114,7 @@ export default function VideoModal({
       video.removeEventListener("play", handlePlay);
       video.removeEventListener("pause", handlePause);
     };
-  }, [video]);
-
-  // Show arrows when video container is tapped
-  const handleVideoTap = () => {
-    setShowMobileArrows(true);
-  };
+  }, [video, showMobileArrowsWithTimeout]);
 
   return (
     <AnimatePresence>
@@ -119,12 +148,12 @@ export default function VideoModal({
           </svg>
         </motion.button>
 
-        {/* Navigation arrows */}
+        {/* Navigation arrows - Desktop only */}
         {videos.length > 1 && (
           <>
             {/* Previous button */}
             <motion.button
-              className="absolute left-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-all duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4"
+              className="absolute left-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-all duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4 hidden md:block"
               onClick={(e) => {
                 e.stopPropagation();
                 handlePrevious();
@@ -149,7 +178,7 @@ export default function VideoModal({
 
             {/* Next button */}
             <motion.button
-              className="absolute right-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-all duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4"
+              className="absolute right-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-all duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4 hidden md:block"
               onClick={(e) => {
                 e.stopPropagation();
                 handleNext();
@@ -183,7 +212,7 @@ export default function VideoModal({
           transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
           onClick={(e) => {
             e.stopPropagation();
-            handleVideoTap();
+            handleVideoInteraction();
           }}
         >
           <div className="relative w-full h-full">
@@ -195,63 +224,69 @@ export default function VideoModal({
               autoPlay
               loop
               playsInline
+              onClick={handleVideoInteraction}
             />
 
-            {/* Navigation overlay for mobile */}
-            <div className="absolute inset-0 flex md:hidden">
-              {/* Left side - Previous video */}
+            {/* Mobile navigation arrows - only the arrows are clickable */}
+            {videos.length > 1 && (
               <div
-                className="flex-1 flex items-center justify-start pl-8"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handlePrevious();
-                }}
+                className={`absolute inset-0 pointer-events-none md:hidden transition-opacity duration-300 ${
+                  showMobileArrows ? "opacity-100" : "opacity-0"
+                }`}
               >
-                <div className="w-16 h-16 bg-[#b65c25]/20 rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                  <svg
-                    className="w-8 h-8 text-[#b65c25]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                {/* Previous arrow - only the arrow is clickable */}
+                <div className="absolute left-8 top-1/2 -translate-y-1/2 pointer-events-auto">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePrevious();
+                    }}
+                    className="w-16 h-16 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full flex items-center justify-center transition-all duration-300"
+                    title="Previous video"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
+                    <svg
+                      className="w-8 h-8 text-[#b65c25]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Next arrow - only the arrow is clickable */}
+                <div className="absolute right-8 top-1/2 -translate-y-1/2 pointer-events-auto">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNext();
+                    }}
+                    className="w-16 h-16 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full flex items-center justify-center transition-all duration-300"
+                    title="Next video"
+                  >
+                    <svg
+                      className="w-8 h-8 text-[#b65c25]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
-
-              {/* Center - Video area (no navigation) */}
-              <div className="flex-2" />
-
-              {/* Right side - Next video */}
-              <div
-                className="flex-1 flex items-center justify-end pr-8"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleNext();
-                }}
-              >
-                <div className="w-16 h-16 bg-[#b65c25]/20 rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                  <svg
-                    className="w-8 h-8 text-[#b65c25]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
+            )}
 
             {/* Glow effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#b65c25]/10 to-transparent blur-3xl -z-10" />
