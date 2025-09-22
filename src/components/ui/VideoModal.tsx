@@ -65,9 +65,8 @@ export default function VideoModal({
     setShowMobileArrows(true);
 
     const handlePlay = () => {
+      // Don't hide arrows on play in mobile
       setShowMobileArrows(true);
-      // Hide arrows after 3 seconds of playing
-      setTimeout(() => setShowMobileArrows(false), 3000);
     };
 
     const handlePause = () => {
@@ -86,8 +85,6 @@ export default function VideoModal({
   // Show arrows when video container is tapped
   const handleVideoTap = () => {
     setShowMobileArrows(true);
-    // Hide arrows after 3 seconds
-    setTimeout(() => setShowMobileArrows(false), 3000);
   };
 
   return (
@@ -127,9 +124,7 @@ export default function VideoModal({
           <>
             {/* Previous button */}
             <motion.button
-              className={`absolute left-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-all duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4 ${
-                showMobileArrows ? "opacity-100" : "opacity-10 md:opacity-100"
-              }`}
+              className="absolute left-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-all duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4"
               onClick={(e) => {
                 e.stopPropagation();
                 handlePrevious();
@@ -154,9 +149,7 @@ export default function VideoModal({
 
             {/* Next button */}
             <motion.button
-              className={`absolute right-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-all duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4 ${
-                showMobileArrows ? "opacity-100" : "opacity-10 md:opacity-100"
-              }`}
+              className="absolute right-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-all duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4"
               onClick={(e) => {
                 e.stopPropagation();
                 handleNext();
@@ -193,14 +186,6 @@ export default function VideoModal({
             handleVideoTap();
           }}
         >
-          {/* Invisible overlay for mobile touch detection */}
-          <div
-            className="absolute inset-0 z-20 md:hidden"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleVideoTap();
-            }}
-          />
           <div className="relative w-full h-full">
             <video
               ref={videoRef}
