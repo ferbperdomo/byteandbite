@@ -1,6 +1,6 @@
 "use client";
 
-import MediaModal from "@/components/ui/MediaModal";
+import PhotographyModal from "@/components/ui/PhotographyModal";
 import { CloudinaryResource } from "@/lib/cloudinary";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -16,6 +16,7 @@ export default function WebGallery({ webImages }: WebGalleryProps) {
   const [selectedImage, setSelectedImage] = useState<CloudinaryResource | null>(
     null
   );
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [loadedImages, setLoadedImages] = useState<CloudinaryResource[]>([]);
   const [visibleImages, setVisibleImages] = useState<number>(8);
   const titleRef = useRef<HTMLDivElement>(null);
@@ -43,6 +44,18 @@ export default function WebGallery({ webImages }: WebGalleryProps) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [webImages.length]);
+
+  // Handle image selection
+  const handleImageClick = (image: CloudinaryResource, index: number) => {
+    setSelectedImage(image);
+    setCurrentImageIndex(index);
+  };
+
+  // Handle image change in modal
+  const handleImageChange = (newIndex: number) => {
+    setCurrentImageIndex(newIndex);
+    setSelectedImage(webImages[newIndex]);
+  };
 
   return (
     <div className="relative min-h-screen bg-black overflow-hidden">
@@ -259,14 +272,17 @@ export default function WebGallery({ webImages }: WebGalleryProps) {
       {/* Portfolio Section */}
       <PortfolioSection
         webImages={loadedImages}
-        onImageClick={setSelectedImage}
+        onImageClick={handleImageClick}
       />
 
       {/* Modal */}
       {selectedImage && (
-        <MediaModal
-          media={selectedImage}
+        <PhotographyModal
+          photo={selectedImage}
+          photos={webImages}
+          currentIndex={currentImageIndex}
           onClose={() => setSelectedImage(null)}
+          onPhotoChange={handleImageChange}
         />
       )}
     </div>
@@ -610,7 +626,7 @@ function PortfolioSection({
   onImageClick,
 }: {
   webImages: CloudinaryResource[];
-  onImageClick: (image: CloudinaryResource) => void;
+  onImageClick: (image: CloudinaryResource, index: number) => void;
 }) {
   const t = useTranslations("web.portfolio");
   const ref = useRef<HTMLDivElement>(null);
@@ -653,7 +669,7 @@ function PortfolioSection({
                     scale: 1.02,
                     transition: { duration: 0.3 },
                   }}
-              onClick={() => onImageClick(image)}
+              onClick={() => onImageClick(image, index)}
                 >
                   <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg border-2 border-transparent group-hover:border-[#b65c25] transition-all duration-300">
                     <Image

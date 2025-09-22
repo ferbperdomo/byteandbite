@@ -18,6 +18,7 @@ export default function PhotographyGallery({
   const [selectedPhoto, setSelectedPhoto] = useState<CloudinaryResource | null>(
     null
   );
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
   const [loadedPhotos, setLoadedPhotos] = useState<CloudinaryResource[]>([]);
   const [visiblePhotos, setVisiblePhotos] = useState<number>(12);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -46,6 +47,18 @@ export default function PhotographyGallery({
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [photos.length]);
+
+  // Handle photo selection
+  const handlePhotoClick = (photo: CloudinaryResource, index: number) => {
+    setSelectedPhoto(photo);
+    setCurrentPhotoIndex(index);
+  };
+
+  // Handle photo change in modal
+  const handlePhotoChange = (newIndex: number) => {
+    setCurrentPhotoIndex(newIndex);
+    setSelectedPhoto(photos[newIndex]);
+  };
 
   // Generate random heights for masonry effect
   const getRandomHeight = (index: number) => {
@@ -151,7 +164,7 @@ export default function PhotographyGallery({
                     scale: 1.02,
                     transition: { duration: 0.3 },
                   }}
-                  onClick={() => setSelectedPhoto(photo)}
+                  onClick={() => handlePhotoClick(photo, index)}
                 >
                   <div className="relative w-full h-full rounded-lg overflow-hidden shadow-lg border-2 border-transparent group-hover:border-[#b65c25] transition-all duration-300">
                     <Image
@@ -181,7 +194,10 @@ export default function PhotographyGallery({
       {selectedPhoto && (
         <PhotographyModal
           photo={selectedPhoto}
+          photos={photos}
+          currentIndex={currentPhotoIndex}
           onClose={() => setSelectedPhoto(null)}
+          onPhotoChange={handlePhotoChange}
         />
       )}
     </div>

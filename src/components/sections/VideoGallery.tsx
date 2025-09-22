@@ -15,6 +15,7 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
   const [selectedVideo, setSelectedVideo] = useState<CloudinaryResource | null>(
     null
   );
+  const [currentVideoIndex, setCurrentVideoIndex] = useState<number>(0);
   const [loadedVideos, setLoadedVideos] = useState<CloudinaryResource[]>([]);
   const [visibleVideos, setVisibleVideos] = useState<number>(8);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -43,6 +44,18 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [videos.length]);
+
+  // Handle video selection
+  const handleVideoClick = (video: CloudinaryResource, index: number) => {
+    setSelectedVideo(video);
+    setCurrentVideoIndex(index);
+  };
+
+  // Handle video change in modal
+  const handleVideoChange = (newIndex: number) => {
+    setCurrentVideoIndex(newIndex);
+    setSelectedVideo(videos[newIndex]);
+  };
 
   return (
     <div className="relative min-h-screen bg-black overflow-hidden">
@@ -140,7 +153,7 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
                     scale: 1.02,
                     transition: { duration: 0.3 },
                   }}
-                  onClick={() => setSelectedVideo(video)}
+                  onClick={() => handleVideoClick(video, index)}
                 >
                   <div
                     className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg border-2 border-transparent group-hover:border-[#b65c25] transition-all duration-300"
@@ -197,7 +210,10 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
       {selectedVideo && (
         <VideoModal
           video={selectedVideo}
+          videos={videos}
+          currentIndex={currentVideoIndex}
           onClose={() => setSelectedVideo(null)}
+          onVideoChange={handleVideoChange}
         />
       )}
     </div>

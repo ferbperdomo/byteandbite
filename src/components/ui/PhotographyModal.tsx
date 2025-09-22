@@ -3,28 +3,48 @@
 import { CloudinaryResource } from "@/lib/cloudinary";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 interface PhotographyModalProps {
   photo: CloudinaryResource;
+  photos: CloudinaryResource[];
+  currentIndex: number;
   onClose: () => void;
+  onPhotoChange: (index: number) => void;
 }
 
 export default function PhotographyModal({
   photo,
+  photos,
+  currentIndex,
   onClose,
+  onPhotoChange,
 }: PhotographyModalProps) {
-  // Close on escape key
+  const handlePrevious = useCallback(() => {
+    const prevIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
+    onPhotoChange(prevIndex);
+  }, [currentIndex, photos.length, onPhotoChange]);
+
+  const handleNext = useCallback(() => {
+    const nextIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
+    onPhotoChange(nextIndex);
+  }, [currentIndex, photos.length, onPhotoChange]);
+
+  // Keyboard navigation
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         onClose();
+      } else if (e.key === "ArrowLeft") {
+        handlePrevious();
+      } else if (e.key === "ArrowRight") {
+        handleNext();
       }
     };
 
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [onClose]);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [onClose, handlePrevious, handleNext]);
 
   return (
     <AnimatePresence>
@@ -57,6 +77,61 @@ export default function PhotographyModal({
             />
           </svg>
         </motion.button>
+
+        {/* Navigation arrows */}
+        {photos.length > 1 && (
+          <>
+            {/* Previous button */}
+            <motion.button
+              className="absolute left-8 top-1/2 -translate-y-1/2 z-10 text-white hover:text-[#b65c25] transition-colors duration-300 bg-black/50 hover:bg-black/70 rounded-full p-4"
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrevious();
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </motion.button>
+
+            {/* Next button */}
+            <motion.button
+              className="absolute right-8 top-1/2 -translate-y-1/2 z-10 text-white hover:text-[#b65c25] transition-colors duration-300 bg-black/50 hover:bg-black/70 rounded-full p-4"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </motion.button>
+          </>
+        )}
 
         {/* Photo container */}
         <motion.div

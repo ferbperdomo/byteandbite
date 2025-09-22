@@ -6,10 +6,19 @@ import { useCallback, useEffect, useRef } from "react";
 
 interface VideoModalProps {
   video: CloudinaryResource;
+  videos: CloudinaryResource[];
+  currentIndex: number;
   onClose: () => void;
+  onVideoChange: (index: number) => void;
 }
 
-export default function VideoModal({ video, onClose }: VideoModalProps) {
+export default function VideoModal({
+  video,
+  videos,
+  currentIndex,
+  onClose,
+  onVideoChange,
+}: VideoModalProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleClose = useCallback(() => {
@@ -20,17 +29,31 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
     onClose();
   }, [onClose]);
 
-  // Close on escape key
+  const handlePrevious = useCallback(() => {
+    const prevIndex = currentIndex > 0 ? currentIndex - 1 : videos.length - 1;
+    onVideoChange(prevIndex);
+  }, [currentIndex, videos.length, onVideoChange]);
+
+  const handleNext = useCallback(() => {
+    const nextIndex = currentIndex < videos.length - 1 ? currentIndex + 1 : 0;
+    onVideoChange(nextIndex);
+  }, [currentIndex, videos.length, onVideoChange]);
+
+  // Keyboard navigation
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         handleClose();
+      } else if (e.key === "ArrowLeft") {
+        handlePrevious();
+      } else if (e.key === "ArrowRight") {
+        handleNext();
       }
     };
 
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [handleClose]);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [handleClose, handlePrevious, handleNext]);
 
   return (
     <AnimatePresence>
@@ -63,6 +86,61 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
             />
           </svg>
         </motion.button>
+
+        {/* Navigation arrows */}
+        {videos.length > 1 && (
+          <>
+            {/* Previous button */}
+            <motion.button
+              className="absolute left-8 top-1/2 -translate-y-1/2 z-10 text-white hover:text-[#b65c25] transition-colors duration-300 bg-black/50 hover:bg-black/70 rounded-full p-4"
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrevious();
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </motion.button>
+
+            {/* Next button */}
+            <motion.button
+              className="absolute right-8 top-1/2 -translate-y-1/2 z-10 text-white hover:text-[#b65c25] transition-colors duration-300 bg-black/50 hover:bg-black/70 rounded-full p-4"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </motion.button>
+          </>
+        )}
 
         {/* Video container */}
         <motion.div
