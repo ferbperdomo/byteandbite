@@ -194,7 +194,64 @@ export default function VideoModal({
               controls
               autoPlay
               loop
+              playsInline
             />
+
+            {/* Navigation overlay for mobile */}
+            <div className="absolute inset-0 flex md:hidden">
+              {/* Left side - Previous video */}
+              <div
+                className="flex-1 flex items-center justify-start pl-8"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePrevious();
+                }}
+              >
+                <div className="w-16 h-16 bg-[#b65c25]/20 rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                  <svg
+                    className="w-8 h-8 text-[#b65c25]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Center - Video area (no navigation) */}
+              <div className="flex-2" />
+
+              {/* Right side - Next video */}
+              <div
+                className="flex-1 flex items-center justify-end pr-8"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleNext();
+                }}
+              >
+                <div className="w-16 h-16 bg-[#b65c25]/20 rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                  <svg
+                    className="w-8 h-8 text-[#b65c25]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
 
             {/* Glow effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#b65c25]/10 to-transparent blur-3xl -z-10" />
