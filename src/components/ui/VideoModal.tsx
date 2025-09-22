@@ -125,32 +125,10 @@ export default function VideoModal({
         {/* Navigation arrows */}
         {videos.length > 1 && (
           <>
-            {/* Invisible touch areas for mobile when arrows are hidden */}
-            {!showMobileArrows && (
-              <>
-                <div
-                  className="absolute left-0 top-1/2 -translate-y-1/2 w-20 h-32 z-10 md:hidden"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleVideoTap();
-                  }}
-                />
-                <div
-                  className="absolute right-0 top-1/2 -translate-y-1/2 w-20 h-32 z-10 md:hidden"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleVideoTap();
-                  }}
-                />
-              </>
-            )}
-
             {/* Previous button */}
             <motion.button
-              className={`absolute left-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-colors duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4 ${
-                showMobileArrows
-                  ? "block"
-                  : "opacity-0 md:opacity-100 pointer-events-auto"
+              className={`absolute left-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-all duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4 ${
+                showMobileArrows ? "opacity-100" : "opacity-10 md:opacity-100"
               }`}
               onClick={(e) => {
                 e.stopPropagation();
@@ -176,10 +154,8 @@ export default function VideoModal({
 
             {/* Next button */}
             <motion.button
-              className={`absolute right-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-colors duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4 ${
-                showMobileArrows
-                  ? "block"
-                  : "opacity-0 md:opacity-100 pointer-events-auto"
+              className={`absolute right-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-all duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4 ${
+                showMobileArrows ? "opacity-100" : "opacity-10 md:opacity-100"
               }`}
               onClick={(e) => {
                 e.stopPropagation();
@@ -217,6 +193,14 @@ export default function VideoModal({
             handleVideoTap();
           }}
         >
+          {/* Invisible overlay for mobile touch detection */}
+          <div
+            className="absolute inset-0 z-20 md:hidden"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleVideoTap();
+            }}
+          />
           <div className="relative w-full h-full">
             <video
               ref={videoRef}
