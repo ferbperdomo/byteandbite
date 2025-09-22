@@ -3,7 +3,7 @@
 import { CloudinaryResource } from "@/lib/cloudinary";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface PhotographyModalProps {
   photo: CloudinaryResource;
@@ -20,6 +20,8 @@ export default function PhotographyModal({
   onClose,
   onPhotoChange,
 }: PhotographyModalProps) {
+  const [showMobileArrows, setShowMobileArrows] = useState(false);
+
   const handlePrevious = useCallback(() => {
     const prevIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
     onPhotoChange(prevIndex);
@@ -46,6 +48,16 @@ export default function PhotographyModal({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [onClose, handlePrevious, handleNext]);
 
+  // Show mobile arrows on tap
+  const handleImageTap = () => {
+    setShowMobileArrows(true);
+  };
+
+  // Show arrows when photo changes
+  useEffect(() => {
+    setShowMobileArrows(true);
+  }, [photo]);
+
   return (
     <AnimatePresence>
       <motion.div
@@ -58,7 +70,7 @@ export default function PhotographyModal({
       >
         {/* Close button */}
         <motion.button
-          className="absolute top-8 right-8 z-10 text-white hover:text-[#b65c25] transition-colors duration-300"
+          className="absolute top-8 right-8 z-10 text-[#b65c25] hover:text-[#d97316] transition-colors duration-300"
           onClick={onClose}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -83,7 +95,11 @@ export default function PhotographyModal({
           <>
             {/* Previous button */}
             <motion.button
-              className="absolute left-8 top-1/2 -translate-y-1/2 z-10 text-white hover:text-[#b65c25] transition-colors duration-300 bg-black/50 hover:bg-black/70 rounded-full p-4"
+              className={`absolute left-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-colors duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4 ${
+                showMobileArrows
+                  ? "md:block"
+                  : "hidden md:block pointer-events-none"
+              }`}
               onClick={(e) => {
                 e.stopPropagation();
                 handlePrevious();
@@ -108,7 +124,11 @@ export default function PhotographyModal({
 
             {/* Next button */}
             <motion.button
-              className="absolute right-8 top-1/2 -translate-y-1/2 z-10 text-white hover:text-[#b65c25] transition-colors duration-300 bg-black/50 hover:bg-black/70 rounded-full p-4"
+              className={`absolute right-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-colors duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4 ${
+                showMobileArrows
+                  ? "md:block"
+                  : "hidden md:block pointer-events-none"
+              }`}
               onClick={(e) => {
                 e.stopPropagation();
                 handleNext();
@@ -140,7 +160,10 @@ export default function PhotographyModal({
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.8, opacity: 0 }}
           transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleImageTap();
+          }}
         >
           <div className="relative w-full h-full">
             <Image

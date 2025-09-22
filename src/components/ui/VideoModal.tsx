@@ -2,7 +2,7 @@
 
 import { CloudinaryResource } from "@/lib/cloudinary";
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface VideoModalProps {
   video: CloudinaryResource;
@@ -20,6 +20,7 @@ export default function VideoModal({
   onVideoChange,
 }: VideoModalProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [showMobileArrows, setShowMobileArrows] = useState(false);
 
   const handleClose = useCallback(() => {
     if (videoRef.current) {
@@ -55,6 +56,40 @@ export default function VideoModal({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [handleClose, handlePrevious, handleNext]);
 
+  // Show arrows when video changes
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Show arrows immediately when video changes
+    setShowMobileArrows(true);
+
+    const handlePlay = () => {
+      setShowMobileArrows(true);
+      // Hide arrows after 3 seconds of playing
+      setTimeout(() => setShowMobileArrows(false), 3000);
+    };
+
+    const handlePause = () => {
+      setShowMobileArrows(true);
+    };
+
+    video.addEventListener("play", handlePlay);
+    video.addEventListener("pause", handlePause);
+
+    return () => {
+      video.removeEventListener("play", handlePlay);
+      video.removeEventListener("pause", handlePause);
+    };
+  }, [video]);
+
+  // Show arrows when video container is tapped
+  const handleVideoTap = () => {
+    setShowMobileArrows(true);
+    // Hide arrows after 3 seconds
+    setTimeout(() => setShowMobileArrows(false), 3000);
+  };
+
   return (
     <AnimatePresence>
       <motion.div
@@ -67,7 +102,7 @@ export default function VideoModal({
       >
         {/* Close button */}
         <motion.button
-          className="absolute top-8 right-8 z-10 text-white hover:text-[#b65c25] transition-colors duration-300"
+          className="absolute top-8 right-8 z-10 text-[#b65c25] hover:text-[#d97316] transition-colors duration-300"
           onClick={handleClose}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -90,9 +125,33 @@ export default function VideoModal({
         {/* Navigation arrows */}
         {videos.length > 1 && (
           <>
+            {/* Invisible touch areas for mobile when arrows are hidden */}
+            {!showMobileArrows && (
+              <>
+                <div
+                  className="absolute left-0 top-1/2 -translate-y-1/2 w-20 h-32 z-10 md:hidden"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleVideoTap();
+                  }}
+                />
+                <div
+                  className="absolute right-0 top-1/2 -translate-y-1/2 w-20 h-32 z-10 md:hidden"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleVideoTap();
+                  }}
+                />
+              </>
+            )}
+
             {/* Previous button */}
             <motion.button
-              className="absolute left-8 top-1/2 -translate-y-1/2 z-10 text-white hover:text-[#b65c25] transition-colors duration-300 bg-black/50 hover:bg-black/70 rounded-full p-4"
+              className={`absolute left-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-colors duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4 ${
+                showMobileArrows
+                  ? "block"
+                  : "opacity-0 md:opacity-100 pointer-events-auto"
+              }`}
               onClick={(e) => {
                 e.stopPropagation();
                 handlePrevious();
@@ -117,7 +176,11 @@ export default function VideoModal({
 
             {/* Next button */}
             <motion.button
-              className="absolute right-8 top-1/2 -translate-y-1/2 z-10 text-white hover:text-[#b65c25] transition-colors duration-300 bg-black/50 hover:bg-black/70 rounded-full p-4"
+              className={`absolute right-8 top-1/2 -translate-y-1/2 z-10 text-[#b65c25] hover:text-[#d97316] transition-colors duration-300 bg-[#b65c25]/20 hover:bg-[#b65c25]/30 rounded-full p-4 ${
+                showMobileArrows
+                  ? "block"
+                  : "opacity-0 md:opacity-100 pointer-events-auto"
+              }`}
               onClick={(e) => {
                 e.stopPropagation();
                 handleNext();
@@ -149,7 +212,10 @@ export default function VideoModal({
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.8, opacity: 0 }}
           transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleVideoTap();
+          }}
         >
           <div className="relative w-full h-full">
             <video
