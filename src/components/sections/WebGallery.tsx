@@ -236,24 +236,24 @@ export default function WebGallery({ webImages }: WebGalleryProps) {
               ];
               const pos = positions[i] || { left: 50, top: 50 };
               return (
-              <motion.div
-                key={i}
-                className="absolute w-1 h-1 bg-[#b65c25] rounded-full"
-                style={{
+                <motion.div
+                  key={i}
+                  className="absolute w-1 h-1 bg-[#b65c25] rounded-full"
+                  style={{
                     left: `${pos.left}%`,
                     top: `${pos.top}%`,
-                }}
-                animate={{
-                  y: [0, -20, 0],
-                  opacity: [0.3, 1, 0.3],
-                  scale: [0.5, 1, 0.5],
-                }}
-                transition={{
+                  }}
+                  animate={{
+                    y: [0, -20, 0],
+                    opacity: [0.3, 1, 0.3],
+                    scale: [0.5, 1, 0.5],
+                  }}
+                  transition={{
                     duration: 3 + (i % 3),
-                  repeat: Infinity,
+                    repeat: Infinity,
                     delay: i * 0.3,
-                }}
-              />
+                  }}
+                />
               );
             })}
           </div>
@@ -549,7 +549,7 @@ function ProcessSection() {
           <p className="text-lg text-gray-400 max-w-4xl mx-auto">
             {t("description")}
           </p>
-      </motion.div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {processSteps.map((step, index) => (
@@ -640,7 +640,7 @@ function PortfolioSection({
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 1 }}
     >
-        <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
           initial={{ y: 50, opacity: 0 }}
@@ -653,56 +653,56 @@ function PortfolioSection({
           <p className="text-xl text-gray-300">{t("subtitle")}</p>
         </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {webImages.map((image, index) => (
-                <motion.div
-                  key={image.public_id}
-                  className="cursor-pointer group"
-                  initial={{ opacity: 0, y: 50 }}
+            <motion.div
+              key={image.public_id}
+              className="cursor-pointer group"
+              initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{
-                    duration: 0.6,
+              transition={{
+                duration: 0.6,
                 delay: 0.4 + index * 0.1,
-                    ease: "easeOut",
-                  }}
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3 },
-                  }}
+                ease: "easeOut",
+              }}
+              whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.3 },
+              }}
               onClick={() => onImageClick(image, index)}
-                >
-                  <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg border-2 border-transparent group-hover:border-[#b65c25] transition-all duration-300">
-                    <Image
-                      src={image.secure_url}
-                      alt="Web Development Project"
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
+            >
+              <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg border-2 border-transparent group-hover:border-[#b65c25] transition-all duration-300">
+                <Image
+                  src={image.secure_url}
+                  alt="Web Development Project"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
 
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center pointer-events-none">
-                      <div className="w-12 h-12 bg-[#b65c25] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 pointer-events-none opacity-100 group-hover:opacity-0">
-                        <svg
-                          className="w-5 h-5 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#b65c25]/20 to-transparent blur-sm" />
-                    </div>
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center pointer-events-none">
+                  <div className="w-12 h-12 bg-[#b65c25] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 pointer-events-none opacity-100 group-hover:opacity-0">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                      />
+                    </svg>
                   </div>
-                </motion.div>
+                </div>
+
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#b65c25]/20 to-transparent blur-sm" />
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -1041,7 +1041,7 @@ function MorphingIcon() {
             }}
           />
         ))}
-    </div>
+      </div>
     </motion.div>
   );
 }
