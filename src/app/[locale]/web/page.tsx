@@ -1,4 +1,5 @@
 import WebGallery from "@/components/sections/WebGallery";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import { getAllMediaByCategory } from "@/lib/cloudinary";
 
 export default async function WebPage() {
@@ -9,6 +10,7 @@ export default async function WebPage() {
   return (
     <div className="min-h-screen bg-black">
       <WebGallery webImages={webImages} />
+      <ScrollToTopButton />
     </div>
   );
 }

@@ -16,17 +16,18 @@ export default function HeroSection() {
       <div className="hidden lg:block h-screen relative w-full mb-32">
         <motion.div
           className="absolute left-0 top-0 w-[75%] h-screen"
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Image
-            src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1758240466/DSC00123_vc8kpt.jpg"
+            src="https://res.cloudinary.com/dzmjezjhd/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill/v1758240466/DSC00123_vc8kpt.jpg"
             alt="BYTE STUDIO Hero Image"
             fill
             className="object-cover"
             priority
             sizes="(max-width: 1024px) 100vw, 75vw"
+            quality={85}
           />
         </motion.div>
 
@@ -112,7 +113,7 @@ export default function HeroSection() {
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <Image
-            src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1756399285/DSC09866_lwi7qs.jpg"
+            src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1758240466/DSC00123_vc8kpt.jpg"
             alt="BYTE STUDIO Hero Image"
             fill
             className="object-cover"
@@ -122,7 +123,7 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.div
-           className="absolute bottom-0 left-0 right-0 translate-y-1/4 bg-black/80 backdrop-blur-xs p-8 pt-16 w-[90%] mx-auto overflow-hidden"
+          className="absolute bottom-0 left-0 right-0 translate-y-1/4 bg-black/80 backdrop-blur-xs p-8 pt-16 w-[90%] mx-auto overflow-hidden"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}

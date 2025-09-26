@@ -18,6 +18,12 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  other: {
+    preload:
+      "https://res.cloudinary.com/dzmjezjhd/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill/v1758240466/DSC00123_vc8kpt.jpg as image",
+    "dns-prefetch": "res.cloudinary.com",
+    preconnect: "https://res.cloudinary.com",
+  },
   metadataBase: new URL("https://byteandbite-omega.vercel.app"),
   alternates: {
     canonical: "/",

@@ -1,4 +1,5 @@
 import VideoGallery from "@/components/sections/VideoGallery";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import { getAllMediaByCategory } from "@/lib/cloudinary";
 
 export default async function VideosPage() {
@@ -9,6 +10,7 @@ export default async function VideosPage() {
   return (
     <div className="min-h-screen bg-black">
       <VideoGallery videos={videos} />
+      <ScrollToTopButton />
     </div>
   );
 }
