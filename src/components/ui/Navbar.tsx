@@ -41,8 +41,37 @@ export default function Navbar() {
   const toggleLanguage = () => {
     const newLocale = currentLocale === "en" ? "es" : "en";
     setCurrentLocale(newLocale);
-    // Keep current path but change locale
-    router.push(pathname, { locale: newLocale });
+
+    // Get current URL including hash
+    const currentUrl = window.location.pathname + window.location.hash;
+    const pathWithoutLocale = currentUrl.split("/").slice(2).join("/");
+
+    // Extract path and hash separately
+    const [path, hash] = pathWithoutLocale.split("#");
+    const currentPath = path || "";
+    const currentHash = hash ? `#${hash}` : "";
+
+    // Map routes between languages
+    let newPath = currentPath;
+
+    if (newLocale === "es") {
+      // Mapping from English to Spanish
+      if (currentPath === "faq") {
+        newPath = "preguntas-frecuentes";
+      } else if (currentPath === "photography") {
+        newPath = "fotografias";
+      }
+    } else {
+      // Mapping from Spanish to English
+      if (currentPath === "preguntas-frecuentes") {
+        newPath = "faq";
+      } else if (currentPath === "fotografias") {
+        newPath = "photography";
+      }
+    }
+
+    // Use router.push with locale option and preserve hash
+    router.push(`/${newPath}${currentHash}`, { locale: newLocale });
   };
 
   return (
@@ -73,7 +102,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center space-x-8">
             <Link
-              href={`/${currentLocale}#services`}
+              href="#services"
               className={`text-[#b65c25] hover:text-[#a55220] px-3 py-2 text-md font-medium transition-all duration-500 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(182,92,37,0.3)] delay-[400ms] ${
                 isLoaded
                   ? "opacity-100 translate-y-0"
@@ -235,7 +264,7 @@ export default function Navbar() {
 
           <div className="flex flex-col items-center gap-8 text-center px-8">
             <Link
-              href={`/${currentLocale}#services`}
+              href="#services"
               className="text-[#b65c25] no-underline text-lg font-medium hover:text-[#a55220] transition-all duration-300 hover:scale-105"
               onClick={(e) => {
                 e.preventDefault();
