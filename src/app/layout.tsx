@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       "Professional photography, videography, and web development services.",
     images: [
       {
-        url: "https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png",
+        url: "/media/assets/logos/bytelogo.png",
         width: 1200,
         height: 630,
         alt: "Byte Studio Logo",
@@ -54,9 +54,7 @@ export const metadata: Metadata = {
     title: "Byte Studio - Creative Marketing Agency",
     description:
       "Professional photography, videography, and web development services.",
-    images: [
-      "https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png",
-    ],
+    images: ["/media/assets/logos/bytelogo.png"],
   },
   robots: {
     index: true,
@@ -70,11 +68,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png",
-    shortcut:
-      "https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png",
-    apple:
-      "https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png",
+    icon: "/media/assets/logos/bytelogo.png",
+    shortcut: "/media/assets/logos/bytelogo.png",
+    apple: "/media/assets/logos/bytelogo.png",
   },
 };
 
@@ -106,7 +102,7 @@ export default function RootLayout({
               description:
                 "Professional photography, videography, and web development services",
               url: "https://byteandbite-omega.vercel.app",
-              logo: "https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png",
+              logo: "/media/assets/logos/bytelogo.png",
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+1-XXX-XXX-XXXX",

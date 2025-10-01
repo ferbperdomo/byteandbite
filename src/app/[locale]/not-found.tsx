@@ -66,7 +66,7 @@ export default function NotFound() {
           {/* Logo */}
           <div className="mb-8 animate-fade-in">
             <Image
-              src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png"
+              src="/media/assets/logos/bytelogo.png"
               alt="Byte Studio Logo"
               width={120}
               height={120}

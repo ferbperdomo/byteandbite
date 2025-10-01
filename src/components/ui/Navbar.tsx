@@ -61,7 +61,7 @@ export default function Navbar() {
               className="hover:opacity-80 transition-opacity duration-300"
             >
               <Image
-                src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png"
+                src="/media/assets/logos/bytelogo.png"
                 alt="Byte & Bite"
                 width={120}
                 height={60}

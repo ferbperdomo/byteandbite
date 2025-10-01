@@ -29,7 +29,7 @@ export default function ContactPage() {
             }}
           >
             <Image
-              src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png"
+              src="/media/assets/logos/bytelogo.png"
               alt="Byte & Bite Logo"
               fill
               sizes="(max-width: 768px) 64px, (max-width: 1024px) 80px, 128px"
@@ -53,7 +53,7 @@ export default function ContactPage() {
             }}
           >
             <Image
-              src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png"
+              src="/media/assets/logos/bytelogo.png"
               alt="Byte & Bite Logo"
               fill
               sizes="(max-width: 768px) 64px, (max-width: 1024px) 80px, 128px"
@@ -76,7 +76,7 @@ export default function ContactPage() {
             }}
           >
             <Image
-              src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png"
+              src="/media/assets/logos/bytelogo.png"
               alt="Byte & Bite Logo"
               fill
               sizes="(max-width: 768px) 64px, (max-width: 1024px) 80px, 128px"
@@ -100,7 +100,7 @@ export default function ContactPage() {
             }}
           >
             <Image
-              src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png"
+              src="/media/assets/logos/bytelogo.png"
               alt="Byte & Bite Logo"
               fill
               sizes="(max-width: 768px) 64px, (max-width: 1024px) 80px, 128px"
@@ -123,7 +123,7 @@ export default function ContactPage() {
             }}
           >
             <Image
-              src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png"
+              src="/media/assets/logos/bytelogo.png"
               alt="Byte & Bite Logo"
               fill
               sizes="(max-width: 768px) 64px, (max-width: 1024px) 80px, 128px"
@@ -147,7 +147,7 @@ export default function ContactPage() {
             }}
           >
             <Image
-              src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1757496139/Branvision_nlcq0d.png"
+              src="/media/assets/logos/bytelogo.png"
               alt="Byte & Bite Logo"
               fill
               sizes="(max-width: 768px) 64px, (max-width: 1024px) 80px, 128px"
