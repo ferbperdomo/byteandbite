@@ -34,34 +34,11 @@ export default function NotFound() {
         {/* Floating particles background */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(15)].map((_, i) => {
-            const positions = [
-              { left: 10, top: 20 },
-              { left: 30, top: 15 },
-              { left: 50, top: 25 },
-              { left: 70, top: 18 },
-              { left: 90, top: 22 },
-              { left: 15, top: 40 },
-              { left: 35, top: 45 },
-              { left: 55, top: 38 },
-              { left: 75, top: 42 },
-              { left: 85, top: 35 },
-              { left: 20, top: 60 },
-              { left: 40, top: 65 },
-              { left: 60, top: 58 },
-              { left: 80, top: 62 },
-              { left: 95, top: 55 },
-            ];
-            const pos = positions[i] || { left: 50, top: 50 };
+            const particleClass = `particle-${(i % 17) + 1}`;
             return (
               <div
                 key={i}
-                className="absolute w-2 h-2 bg-[#b65c25]/30 rounded-full animate-bounce"
-                style={{
-                  left: `${pos.left}%`,
-                  top: `${pos.top}%`,
-                  animationDelay: `${i * 0.2}s`,
-                  animationDuration: `${3 + (i % 3)}s`,
-                }}
+                className={`absolute w-2 h-2 bg-[#b65c25]/30 rounded-full animate-bounce ${particleClass}`}
               />
             );
           })}

@@ -1,12 +1,12 @@
 "use client";
 
-import { CloudinaryResource } from "@/lib/cloudinary";
+import { MediaFile } from "@/lib/media";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 interface VideoModalProps {
-  video: CloudinaryResource;
-  videos: CloudinaryResource[];
+  video: MediaFile;
+  videos: MediaFile[];
   currentIndex: number;
   onClose: () => void;
   onVideoChange: (index: number) => void;
@@ -218,7 +218,7 @@ export default function VideoModal({
           <div className="relative w-full h-full">
             <video
               ref={videoRef}
-              src={video.secure_url}
+              src={`/media/videos/portfolio/${video.filename}`}
               className="w-full h-full object-contain max-h-[90vh] rounded-lg shadow-2xl"
               controls
               autoPlay

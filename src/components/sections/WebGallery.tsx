@@ -623,8 +623,8 @@ function PortfolioSection({
   webImages,
   onImageClick,
 }: {
-  webImages: CloudinaryResource[];
-  onImageClick: (image: CloudinaryResource, index: number) => void;
+  webImages: MediaFile[];
+  onImageClick: (image: MediaFile, index: number) => void;
 }) {
   const t = useTranslations("web.portfolio");
   const ref = useRef<HTMLDivElement>(null);

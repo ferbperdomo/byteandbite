@@ -57,20 +57,15 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
 
   // Scroll to current video when modal closes
   const scrollToCurrentVideo = useCallback(() => {
-    console.log("Scrolling to video index:", currentVideoIndex);
     const videoElement = document.querySelector(
       `[data-video-index="${currentVideoIndex}"]`
     );
-    console.log("Found video element:", videoElement);
-
     if (videoElement) {
       videoElement.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
     } else {
-      console.log("Video element not found, using fallback");
-      // Fallback: scroll to the container
       if (containerRef.current) {
         containerRef.current.scrollIntoView({
           behavior: "smooth",

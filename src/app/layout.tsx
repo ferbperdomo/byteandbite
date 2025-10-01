@@ -19,10 +19,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   other: {
-    preload:
-      "https://res.cloudinary.com/dzmjezjhd/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill/v1758240466/DSC00123_vc8kpt.jpg as image",
-    "dns-prefetch": "res.cloudinary.com",
-    preconnect: "https://res.cloudinary.com",
+    preload: "/media/images/hero/hero-image.jpg as image",
   },
   metadataBase: new URL("https://byteandbite-omega.vercel.app"),
   alternates: {
@@ -88,8 +85,6 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-        <link rel="preconnect" href="https://res.cloudinary.com" />
       </head>
       <body className="overflow-x-hidden bg-black">
         <script
