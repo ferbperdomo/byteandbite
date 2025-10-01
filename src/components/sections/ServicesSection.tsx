@@ -1,7 +1,7 @@
 "use client";
 
 import InteractiveFirmament from "@/components/ui/InteractiveFirmament";
-import { CloudinaryResource } from "@/lib/cloudinary";
+import { MediaFile } from "@/lib/media";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -11,10 +11,10 @@ import { useEffect, useState } from "react";
 
 interface ServicesSectionProps {
   media: {
-    photos: CloudinaryResource[];
-    videos: CloudinaryResource[];
-    web: CloudinaryResource[];
-    branding: CloudinaryResource[];
+    photos: MediaFile[];
+    videos: MediaFile[];
+    web: MediaFile[];
+    branding: MediaFile[];
   };
 }
 
@@ -108,7 +108,7 @@ export default function ServicesSection({ media }: ServicesSectionProps) {
 interface ServiceCardProps {
   service: {
     key: string;
-    media: CloudinaryResource[];
+    media: MediaFile[];
     href: string;
   };
   index: number;
@@ -139,7 +139,7 @@ function ServiceCard({ service, index, isVisible }: ServiceCardProps) {
           <div className="absolute inset-0 flex items-center justify-center">
             {service.media.map((item, itemIndex) => (
               <motion.div
-                key={item.public_id}
+                key={item.id}
                 className="absolute w-52 h-52 md:w-60 md:h-60 rounded-lg overflow-hidden shadow-lg"
                 initial={{
                   x: (itemIndex - 1) * 20,
@@ -167,19 +167,22 @@ function ServiceCard({ service, index, isVisible }: ServiceCardProps) {
                 }
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                {item.resource_type === "video" ? (
+                {item.type === "video" ? (
                   <video
-                    src={item.secure_url}
+                    src={`/media/videos/portfolio/${item.filename}`}
                     className="w-full h-full object-cover"
                     muted
                     loop
                     playsInline
                     autoPlay
-                    poster={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/video/upload/so_0/${item.public_id}.jpg`}
+                    poster={`/media/videos/thumbnails/${item.filename.replace(
+                      ".mp4",
+                      ".jpg"
+                    )}`}
                   />
                 ) : (
                   <Image
-                    src={item.secure_url}
+                    src={`/media/images/${item.category}/${item.filename}`}
                     alt={`${serviceData.title} sample`}
                     fill
                     className="object-cover"

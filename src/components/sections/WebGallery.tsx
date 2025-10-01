@@ -1,23 +1,21 @@
 "use client";
 
 import PhotographyModal from "@/components/ui/PhotographyModal";
-import { CloudinaryResource } from "@/lib/cloudinary";
+import { MediaFile } from "@/lib/media";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 interface WebGalleryProps {
-  webImages: CloudinaryResource[];
+  webImages: MediaFile[];
 }
 
 export default function WebGallery({ webImages }: WebGalleryProps) {
   const t = useTranslations("web");
-  const [selectedImage, setSelectedImage] = useState<CloudinaryResource | null>(
-    null
-  );
+  const [selectedImage, setSelectedImage] = useState<MediaFile | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-  const [loadedImages, setLoadedImages] = useState<CloudinaryResource[]>([]);
+  const [loadedImages, setLoadedImages] = useState<MediaFile[]>([]);
   const [visibleImages, setVisibleImages] = useState<number>(8);
   const titleRef = useRef<HTMLDivElement>(null);
   const isTitleInView = useInView(titleRef, { once: true });
@@ -46,7 +44,7 @@ export default function WebGallery({ webImages }: WebGalleryProps) {
   }, [webImages.length]);
 
   // Handle image selection
-  const handleImageClick = (image: CloudinaryResource, index: number) => {
+  const handleImageClick = (image: MediaFile, index: number) => {
     setSelectedImage(image);
     setCurrentImageIndex(index);
   };
@@ -656,7 +654,7 @@ function PortfolioSection({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {webImages.map((image, index) => (
             <motion.div
-              key={image.public_id}
+              key={image.id}
               className="cursor-pointer group"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -673,8 +671,8 @@ function PortfolioSection({
             >
               <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg border-2 border-transparent group-hover:border-[#b65c25] transition-all duration-300">
                 <Image
-                  src={image.secure_url}
-                  alt="Web Development Project"
+                  src={`/media/images/web/${image.filename}`}
+                  alt={image.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

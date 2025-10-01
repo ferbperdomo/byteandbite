@@ -1,13 +1,13 @@
 "use client";
 
-import { CloudinaryResource } from "@/lib/cloudinary";
+import { MediaFile } from "@/lib/media";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
 interface PhotographyModalProps {
-  photo: CloudinaryResource;
-  photos: CloudinaryResource[];
+  photo: MediaFile;
+  photos: MediaFile[];
   currentIndex: number;
   onClose: () => void;
   onPhotoChange: (index: number) => void;
@@ -167,8 +167,8 @@ export default function PhotographyModal({
         >
           <div className="relative w-full h-full">
             <Image
-              src={photo.secure_url}
-              alt="Photography"
+              src={`/media/images/photography/${photo.filename}`}
+              alt={photo.title}
               width={1200}
               height={800}
               className="object-contain max-h-[90vh] w-auto mx-auto rounded-lg shadow-2xl"

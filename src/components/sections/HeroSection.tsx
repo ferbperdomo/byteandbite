@@ -21,7 +21,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Image
-            src="https://res.cloudinary.com/dzmjezjhd/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill/v1758240466/DSC00123_vc8kpt.jpg"
+            src="/media/images/hero/hero-image.jpg"
             alt="BYTE STUDIO Hero Image"
             fill
             className="object-cover"
@@ -113,7 +113,7 @@ export default function HeroSection() {
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <Image
-            src="https://res.cloudinary.com/dzmjezjhd/image/upload/v1758240466/DSC00123_vc8kpt.jpg"
+            src="/media/images/hero/hero-image-mobile.jpg"
             alt="BYTE STUDIO Hero Image"
             fill
             className="object-cover"

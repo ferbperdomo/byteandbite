@@ -1,25 +1,23 @@
 "use client";
 
 import PhotographyModal from "@/components/ui/PhotographyModal";
-import { CloudinaryResource } from "@/lib/cloudinary";
+import { MediaFile } from "@/lib/media";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 interface PhotographyGalleryProps {
-  photos: CloudinaryResource[];
+  photos: MediaFile[];
 }
 
 export default function PhotographyGallery({
   photos,
 }: PhotographyGalleryProps) {
   const t = useTranslations("photography");
-  const [selectedPhoto, setSelectedPhoto] = useState<CloudinaryResource | null>(
-    null
-  );
+  const [selectedPhoto, setSelectedPhoto] = useState<MediaFile | null>(null);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
-  const [loadedPhotos, setLoadedPhotos] = useState<CloudinaryResource[]>([]);
+  const [loadedPhotos, setLoadedPhotos] = useState<MediaFile[]>([]);
   const [visiblePhotos, setVisiblePhotos] = useState<number>(12);
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
@@ -49,7 +47,7 @@ export default function PhotographyGallery({
   }, [photos.length]);
 
   // Handle photo selection
-  const handlePhotoClick = (photo: CloudinaryResource, index: number) => {
+  const handlePhotoClick = (photo: MediaFile, index: number) => {
     setSelectedPhoto(photo);
     setCurrentPhotoIndex(index);
   };
@@ -120,7 +118,7 @@ export default function PhotographyGallery({
           <div className="absolute inset-0 pointer-events-none">
             {[...Array(20)].map((_, i) => (
               <motion.div
-                key={i}
+                key={`particle-${i}`}
                 className="absolute w-1 h-1 bg-[#b65c25] rounded-full"
                 style={{
                   left: `${20 + Math.random() * 60}%`,
@@ -151,7 +149,7 @@ export default function PhotographyGallery({
 
               return (
                 <motion.div
-                  key={photo.public_id}
+                  key={photo.id}
                   className={`cursor-pointer group ${heightClass}`}
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -168,8 +166,8 @@ export default function PhotographyGallery({
                 >
                   <div className="relative w-full h-full rounded-lg overflow-hidden shadow-lg border-2 border-transparent group-hover:border-[#b65c25] transition-all duration-300">
                     <Image
-                      src={photo.secure_url}
-                      alt={`Photography ${index + 1}`}
+                      src={`/media/images/thumbnails/${photo.filename}`}
+                      alt={photo.title || `Photography ${index + 1}`}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                       sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"

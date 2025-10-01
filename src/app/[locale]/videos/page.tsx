@@ -1,11 +1,10 @@
 import VideoGallery from "@/components/sections/VideoGallery";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
-import { getAllMediaByCategory } from "@/lib/cloudinary";
+import { getMediaByCategory } from "@/lib/media";
 
 export default async function VideosPage() {
   // Fetch all videos
-  const media = await getAllMediaByCategory();
-  const videos = media.videos || [];
+  const videos = await getMediaByCategory("videos");
 
   return (
     <div className="min-h-screen bg-black">

@@ -1,7 +1,4 @@
-import {
-  getAllMediaByCategory,
-  getMediaByCategoryWithLimit,
-} from "@/lib/cloudinary";
+import { getAllMedia, getMediaWithLimit } from "@/lib/media";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -13,7 +10,7 @@ export async function GET(request: NextRequest) {
     // If limit is specified, use the limited function
     if (limit) {
       const limitNumber = parseInt(limit);
-      const mediaData = await getMediaByCategoryWithLimit(limitNumber);
+      const mediaData = await getMediaWithLimit(limitNumber);
 
       // If category is specified, return only that category
       if (category && mediaData[category as keyof typeof mediaData]) {
@@ -26,7 +23,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Default behavior - get all media (for Gallery)
-    const mediaData = await getAllMediaByCategory();
+    const mediaData = await getAllMedia();
     return NextResponse.json(mediaData);
   } catch (error) {
     console.error("❌ API Route: Error fetching media:", error);

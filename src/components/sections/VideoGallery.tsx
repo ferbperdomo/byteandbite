@@ -1,22 +1,20 @@
 "use client";
 
 import VideoModal from "@/components/ui/VideoModal";
-import { CloudinaryResource } from "@/lib/cloudinary";
+import { MediaFile } from "@/lib/media";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 interface VideoGalleryProps {
-  videos: CloudinaryResource[];
+  videos: MediaFile[];
 }
 
 export default function VideoGallery({ videos }: VideoGalleryProps) {
   const t = useTranslations("videos");
-  const [selectedVideo, setSelectedVideo] = useState<CloudinaryResource | null>(
-    null
-  );
+  const [selectedVideo, setSelectedVideo] = useState<MediaFile | null>(null);
   const [currentVideoIndex, setCurrentVideoIndex] = useState<number>(0);
-  const [loadedVideos, setLoadedVideos] = useState<CloudinaryResource[]>([]);
+  const [loadedVideos, setLoadedVideos] = useState<MediaFile[]>([]);
   const [visibleVideos, setVisibleVideos] = useState<number>(8);
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
@@ -46,7 +44,7 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
   }, [videos.length]);
 
   // Handle video selection
-  const handleVideoClick = (video: CloudinaryResource, index: number) => {
+  const handleVideoClick = (video: MediaFile, index: number) => {
     setSelectedVideo(video);
     setCurrentVideoIndex(index);
   };
@@ -165,7 +163,7 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
             {loadedVideos.map((video, index) => {
               return (
                 <motion.div
-                  key={video.public_id}
+                  key={video.id}
                   className="cursor-pointer group"
                   data-video-index={index}
                   initial={{ opacity: 0, y: 50 }}
@@ -198,13 +196,16 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
                     }}
                   >
                     <video
-                      src={video.secure_url}
+                      src={`/media/videos/portfolio/${video.filename}`}
                       className="w-full h-full object-cover"
                       muted
                       loop
                       playsInline
                       preload="metadata"
-                      poster={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/video/upload/so_0/${video.public_id}.jpg`}
+                      poster={`/media/videos/thumbnails/${video.filename.replace(
+                        ".mp4",
+                        ".jpg"
+                      )}`}
                     />
 
                     {/* Play button overlay - hidden on hover and mobile */}

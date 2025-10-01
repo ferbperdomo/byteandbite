@@ -1,11 +1,10 @@
 import WebGallery from "@/components/sections/WebGallery";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
-import { getAllMediaByCategory } from "@/lib/cloudinary";
+import { getMediaByCategory } from "@/lib/media";
 
 export default async function WebPage() {
   // Fetch all web development images
-  const media = await getAllMediaByCategory();
-  const webImages = media.web || [];
+  const webImages = await getMediaByCategory("web");
 
   return (
     <div className="min-h-screen bg-black">
