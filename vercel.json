@@ -1,6 +1,6 @@
 {
-  "buildCommand": "git lfs pull && npm run build",
-  "installCommand": "git lfs install && npm install",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
   "functions": {
     "app/api/**/*.ts": {
       "maxDuration": 30
