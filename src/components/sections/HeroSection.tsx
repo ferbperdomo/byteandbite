@@ -22,7 +22,7 @@ export default function HeroSection() {
         >
           <Image
             src="/media/images/hero/hero-image.jpg"
-            alt="BYTE STUDIO Hero Image"
+            alt="Professional photography and videography services by Byte Studio - Creative marketing agency showcasing visual content and digital experiences"
             fill
             className="object-cover"
             priority
@@ -114,7 +114,7 @@ export default function HeroSection() {
         >
           <Image
             src="/media/images/hero/hero-image-mobile.jpg"
-            alt="BYTE STUDIO Hero Image"
+            alt="Professional photography and videography services by Byte Studio - Creative marketing agency showcasing visual content and digital experiences"
             fill
             className="object-cover"
             priority

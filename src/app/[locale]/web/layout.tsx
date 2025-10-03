@@ -1,23 +1,31 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Web Development Services | Byte Studio",
   description:
-    "Professional web development services with modern technologies. Custom websites, e-commerce solutions, and web applications built with React, Next.js, and cutting-edge frameworks.",
+    "Professional web development services. Modern, responsive websites that drive results. Custom web applications, e-commerce solutions, and digital experiences.",
   keywords:
-    "web development, custom websites, e-commerce, React, Next.js, web applications, Byte Studio",
+    "web development, website design, custom websites, responsive design, e-commerce, web applications, digital marketing, Byte Studio",
   openGraph: {
     title: "Web Development Services | Byte Studio",
     description:
-      "Professional web development services with modern technologies. Custom websites, e-commerce solutions, and web applications.",
+      "Professional web development services. Modern, responsive websites that drive results.",
     type: "website",
-    url: "/web",
+    images: [
+      {
+        url: "/media/images/web/clonetflix.png",
+        width: 1200,
+        height: 630,
+        alt: "Byte Studio Web Development Projects",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Web Development Services | Byte Studio",
     description:
-      "Professional web development services with modern technologies.",
+      "Professional web development services. Modern, responsive websites that drive results.",
+    images: ["/media/images/web/clonetflix.png"],
   },
   alternates: {
     canonical: "/web",
@@ -25,5 +33,5 @@ export const metadata: Metadata = {
 };
 
 export default function WebLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return children;
 }

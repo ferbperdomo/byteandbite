@@ -1,18 +1,29 @@
-"use client";
-
+import { generateFAQSchema } from "@/lib/seo";
+import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+
+export const metadata: Metadata = {
+  title: "Frequently Asked Questions | Byte Studio",
+  description:
+    "Find answers to common questions about our photography, videography, and web development services. Get to know Byte Studio's creative process and service offerings.",
+  keywords:
+    "FAQ, frequently asked questions, photography services, videography services, web development, Byte Studio, creative agency, New Jersey",
+  openGraph: {
+    title: "Frequently Asked Questions | Byte Studio",
+    description:
+      "Find answers to common questions about our photography, videography, and web development services.",
+    type: "website",
+  },
+  alternates: {
+    canonical: "/faq",
+  },
+};
 
 export default function FAQPage() {
   const t = useTranslations("faq");
-  const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    // Trigger animation after component mounts
-    setTimeout(() => setIsLoaded(true), 300);
-  }, []);
-
+  // FAQ data for structured data
   const faqData = [
     {
       question: t("questions.q1"),
@@ -28,76 +39,48 @@ export default function FAQPage() {
     },
   ];
 
+  const faqSchema = generateFAQSchema(faqData);
+
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Header */}
-      <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1
-            className={`text-4xl md:text-6xl font-bold mb-6 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            } transition-all duration-700`}
-          >
-            {t("title")}
-          </h1>
-          <p
-            className={`text-lg md:text-xl text-gray-300 max-w-2xl mx-auto ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            } transition-all duration-700 delay-200`}
-          >
-            {t("subtitle")}
-          </p>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
+      <div className="min-h-screen bg-black text-white py-16">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[#b65c25]">
+              {t("title")}
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+              {t("subtitle")}
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {faqData.map((faq, index) => (
+              <div key={index} className="bg-gray-900/50 rounded-lg p-6">
+                <h2 className="text-xl font-semibold mb-4 text-[#b65c25]">
+                  {faq.question}
+                </h2>
+                <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/contact"
+              className="bg-[#b65c25] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#a55220] transition-colors duration-300 inline-block"
+            >
+              {t("backToHome")}
+            </Link>
+          </div>
         </div>
       </div>
-
-      {/* FAQ Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="space-y-6">
-          {faqData.map((faq, index) => (
-            <div
-              key={index}
-              className={`bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 hover:bg-white/10 transition-all duration-300 ${
-                isLoaded
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              } transition-all duration-700`}
-              style={{ transitionDelay: `${300 + index * 100}ms` }}
-            >
-              <h3 className="text-xl font-semibold mb-3 text-white">
-                {faq.question}
-              </h3>
-              <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Back to Home */}
-        <div
-          className={`text-center mt-12 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          } transition-all duration-700 delay-500`}
-        >
-          <Link
-            href="/"
-            className="inline-flex items-center text-white hover:text-gray-300 transition-colors duration-300 group"
-          >
-            <svg
-              className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform duration-300"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            {t("backToHome")}
-          </Link>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }

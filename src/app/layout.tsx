@@ -65,9 +65,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/media/assets/logos/bytelogo.png",
-    shortcut: "/media/assets/logos/bytelogo.png",
-    apple: "/media/assets/logos/bytelogo.png",
+    icon: "/bytestudio.png",
+    shortcut: "/bytestudio.png",
+    apple: "/bytestudio.png",
   },
 };
 
@@ -94,41 +94,103 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Byte Studio",
+              alternateName: "Byte & Bite Media",
               description:
-                "Professional photography, videography, and web development services",
+                "Professional photography, videography, and web development services. Creative marketing agency specializing in visual content and digital experiences.",
               url: "https://byteandbite-omega.vercel.app",
-              logo: "/media/assets/logos/bytelogo.png",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://byteandbite-omega.vercel.app/media/assets/logos/bytelogo.png",
+                width: 200,
+                height: 100,
+              },
+              image:
+                "https://byteandbite-omega.vercel.app/media/assets/logos/bytelogo.png",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+1-XXX-XXX-XXXX",
+                telephone: "+1-908-376-8351",
                 contactType: "customer service",
                 email: "admin@byteandbitemedia.com",
+                availableLanguage: ["English", "Spanish"],
+                areaServed: "US",
               },
-              sameAs: ["https://byteandbite-omega.vercel.app"],
+              sameAs: [
+                "https://www.instagram.com/_bytestudio_",
+                "https://byteandbite-omega.vercel.app",
+              ],
               address: {
                 "@type": "PostalAddress",
+                addressLocality: "New Jersey",
+                addressRegion: "NJ",
                 addressCountry: "US",
               },
+              foundingDate: "2024",
+              numberOfEmployees: "2-10",
               service: [
                 {
                   "@type": "Service",
-                  name: "Photography Services",
+                  name: "Professional Photography",
                   description:
-                    "Professional photography for events, portraits, and commercial use",
+                    "Food, beverage, and commercial photography services",
+                  provider: {
+                    "@type": "Organization",
+                    name: "Byte Studio",
+                  },
+                  areaServed: "United States",
+                  serviceType: "Photography",
                 },
                 {
                   "@type": "Service",
-                  name: "Videography Services",
+                  name: "Video Production",
                   description:
-                    "Professional video production and editing services",
+                    "Professional video production and editing services for marketing and social media",
+                  provider: {
+                    "@type": "Organization",
+                    name: "Byte Studio",
+                  },
+                  areaServed: "United States",
+                  serviceType: "Video Production",
                 },
                 {
                   "@type": "Service",
                   name: "Web Development",
                   description:
-                    "Custom website development and web applications",
+                    "Custom website development, e-commerce solutions, and web applications",
+                  provider: {
+                    "@type": "Organization",
+                    name: "Byte Studio",
+                  },
+                  areaServed: "United States",
+                  serviceType: "Web Development",
                 },
               ],
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Creative Services",
+                itemListElement: [
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Photography Services",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Video Production Services",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Web Development Services",
+                    },
+                  },
+                ],
+              },
             }),
           }}
         />

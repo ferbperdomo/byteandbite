@@ -1,23 +1,31 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Byte Studio",
+  title: "Contact Byte Studio | Get In Touch",
   description:
-    "Get in touch with Byte Studio for professional photography, videography, and web development services. Let's create something amazing together.",
+    "Ready to bring your vision to life? Contact Byte Studio for professional photography, videography, and web development services. Let's create something amazing together.",
   keywords:
-    "contact, photography services, videography, web development, Byte Studio, creative agency",
+    "contact Byte Studio, photography services, videography services, web development, creative agency, New Jersey, professional services",
   openGraph: {
-    title: "Contact Us | Byte Studio",
+    title: "Contact Byte Studio | Get In Touch",
     description:
-      "Get in touch with Byte Studio for professional creative services. Let's create something amazing together.",
+      "Ready to bring your vision to life? Contact Byte Studio for professional photography, videography, and web development services.",
     type: "website",
-    url: "/contact",
+    images: [
+      {
+        url: "/media/assets/logos/bytelogo.png",
+        width: 1200,
+        height: 630,
+        alt: "Contact Byte Studio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us | Byte Studio",
+    title: "Contact Byte Studio | Get In Touch",
     description:
-      "Get in touch with Byte Studio for professional creative services.",
+      "Ready to bring your vision to life? Contact Byte Studio for professional photography, videography, and web development services.",
+    images: ["/media/assets/logos/bytelogo.png"],
   },
   alternates: {
     canonical: "/contact",
@@ -29,5 +37,5 @@ export default function ContactLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return children;
 }
